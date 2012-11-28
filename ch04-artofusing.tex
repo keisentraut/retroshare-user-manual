@@ -1,12 +1,28 @@
-\section{\inGerman{Benutzen von RetroShare}\inEnglish{Using RetroShare}}
-\subsection{Der erste Start}
-Beim ersten Start wird RetroShare dir die Möglichkeit bieten, einen neuen GnuPG-Schlüsselpaar zu erzeugen. Falls du bereits einen GnuPG-Schlüssel hast, z.B. für Email-Verschlüsselung, kannst du auch diesen verwenden. Dabei muß erwähnt werden das nur \emph{RSA}-Schlüssel verwendbar sind. Mit \emph{ElGamal} oder \emph{DSA} kann zwar eine SSL-ID erstellt werden, nach einem Neustart von RetroShare ist es allerdings nicht in der Lage es zu entschlüsseln.
+\section{\inGerman{Benutzen von RetroShare}
+\inEnglish{Using RetroShare}}
+\subsection{\inGerman{Der erste Start}
+\inEnglish{The first start}}
+%
+\inGerman{Beim ersten Start wird RetroShare dir die Möglichkeit bieten, einen neuen GnuPG-Schlüsselpaar zu erzeugen. 
+Falls du bereits einen GnuPG-Schlüssel hast, z.B. für Email-Verschlüsselung, kannst du auch diesen verwenden.
+Dabei muß erwähnt werden das nur \emph{RSA}-Schlüssel verwendbar sind, keine \emph{DSA}-Schl"ussel.}
+\inEnglish{On the first start, RetroShare will give you the possibility to create a new Public/Private Keypair.
+If you already have a PGP key (e.g. for email encryption), you can use this one by importing it.
+Unfortunately RetroShare can use only RSA keys at the moment, but not DSA keys.}
 
-Wenn RetroShare ein GnuPG-Schlüsselpaar erstellt, benötigt es einen (Nick-)Namen, eine beliebige Email-Adresse (wird nicht auf Gültigkeit geprüft und auch später nicht benötigt), ein Passwort und einen sogenannten \glqq Ort\grqq . Bei der eMail-Adresse steht zwar \emph{optional}, aber RetroShare kann ohne eine Adresse keinen Schlüssel von GnuPG erstellen lassen.
+\inGerman{Wenn RetroShare ein PGP-Schlüsselpaar erstellt, benötigt es einen (Nick-)Namen, eine beliebige Email-Adresse (wird nicht auf Gültigkeit geprüft und auch später nicht benötigt), ein Passwort und einen sogenannten \glqq Ort\grqq . Bei der eMail-Adresse steht zwar \emph{optional}, aber RetroShare kann ohne eine Adresse keinen Schlüssel von OpenPGP erstellen lassen.}
+\inEnglish{When RetroShare creates a PGP-keypair, it'll need a (nick)name, a free chosen email (will not be checked and visible to all your friends), a passwort and finally a location. The email field has the attribute optional, but can't leave it empty, otherwise OpenPGP can't create a key.}
 
-Der Ort dient dazu, das Menschen z.B. einen Laptop und einen PC unterscheiden können. Denn \glqq Laptop\grqq oder \glqq Server\grqq lassen sich leichter unterscheiden als rein zufällige Zahlenkollonen wie\\ \glqq 2ddf5cefd2517fb41fd46b5bbb7ce36d\grqq. RetroShare generiert mit Hilfe des GnuPG-Key für jede Installation einen neuen SSL-Key, anhand der die einzelnen Installationen unterschieden werden und die Kommunikation verschlüsselt wird. Bei sämtlichen Installationen kann man denselben GnuPG-Key verwenden.
+\inGerman{Der Ort dient dazu, das Menschen z.B. einen Laptop und einen PC unterscheiden können.
+Denn \glqq Laptop\grqq oder \glqq Server\grqq lassen sich leichter unterscheiden als rein zufällige Zahlenkollonen wie\\ \glqq 2ddf5cefd2517fb41fd46b5bbb7ce36d\grqq.
+RetroShare generiert mit Hilfe des OpenPGP-Key für jede Installation einen neuen SSL-Key, anhand der die einzelnen Installationen unterschieden werden und die Kommunikation verschlüsselt wird.
+Bei sämtlichen Installationen kann man denselben GnuPG-Key verwenden.}
+\inEnglish{The location is useful for people with more computers, e.g a tower and a laptop. This is a convienient feature to give multiple locations meaningful names, instead of using the random SSLID like 
+"2ddf5cefd2517fb41fd46b5bbb7ce36d".}
 
-Ein RetroShare-Zertifikat sieht folgendermaßen aus (dieses hier ist kein real benutztes):
+
+\inGerman{Ein RetroShare-Zertifikat sieht folgendermaßen aus (dieses hier ist kein real benutztes):}
+\inGerman{A RetroShare-Certificate looks like this (this is not a valid one!):}
 \begin{lstlisting}
  -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1.4.11 (GNU/Linux)
@@ -32,10 +48,48 @@ iLka9sOAwIjZX0tM5DpzIg==
 --DYNDNS--<subdomain>.<domain>.com;
 \end{lstlisting}
 
-Der erste Teil, zwischen den Zeilen 1 und 19, ist einfach ein GnuPG-Zertifikat. Der zweite Teil, ab Zeile 20, enthält spezifische Zusatzinformationen für RetroShare. Enthalten sein muss die \emph{SSLID} an Hand derer RetroShare die Installation findet und \emph{LOCATION} die die für Menschen lesbare Form der Installation darstellt. Informationen wie die internen/externen IP- bzw. DynDNS-Adresse muss nicht unbedingt enthalten sein. Die externe IP-Adresse ist nur eine Hilfe wenn sie noch gültig ist. In den meisten Fällen alle 24 Stunden eine neue IP-Adresse zugewiesen und RetroShare wird diese auch selbst herausfinden. Siehe dazu Abschnitt \ref{Verbindung zu Freunden}. Wenn man das Ganze in eine Textdatei mit der Endung \emph{.rsc} speichtert, kann man es als Datei per eMail, Stick oder sonstiges versenden und von RetroShare importieren.
+\inGerman{Es gibt mittlerweilen ein neues, f"ur den Computer leichter zu lesenden Zertifikats-Format, dass dann etwa so aussieht:}
+\inEnglish{There is a new, more robust format for certificates, it looks like this:}
+\begin{lstlisting}
+Af8AAAJbxsBNBFBq+SABCADfBXgKPDeC4Q6gnOaywnx9XTRcdQQYGvbWAOcygGDx
+P7UC9FJ2v8LxtXd6QOjxsexXjGCrey78pPxDgm+iRCG0FGBeLpGBTouamvwQ7uUz
+hLY8IGyjy4oDxwXgvVF/0x0WBi1i/haYJi8qXk9/Ll9cDXTSBKfqH2ACFzWum4mt
+7klubMhsL80QZVeAeaeI2r6zbgYqaw7Xc1kNhYQDbfUU2m1urzaJ9gOT+MzVi97h
+ukjUrE9SuIfrEoqIyL67sflfQyBwYEJm+X2N7pW4CwcnJWsHPI+Fe4POLgrH17bM
+dZkIFdN5EJl/1MT3FYLj/zx5c4Fgocmhi3s1xUWz5mbJABEBAAHNJ3Rlc3QxIChH
+ZW5lcmF0ZWQgYnkgUmV0cm9TaGFyZSkgPHRlc3QxPsLAXwQTAQIAEwUCUGr5IAkQ
+4XzDoqr5prgCGQEAAJ7HCADeRHF2AIUpT0w9/W6+r3e8HiCHaXNsFMcUgrarWl7h
+MS0HfmLgVtaku2q17zcj+yS6QbDBGP2j/3+/OpJyQ1JPCBnvhEE3pbUm8Aoe4ZjI
+jZofcyGA8fR9ICsCVXGqZE7IiNLuklNcwzIbpWt4+tmgQDO5x9D27ch2QEYisbT9
+WZHAxfgW4QPzdKTJiqLxW3xIJqI/tP/y6XByOX/NR57HTXSYcCwE2JTDfuaO2Ki8
+RROqu8XXQj/0xPf8QI8osxl2rH3LRx/c2CooPIQIcX64vqaVaol4P7FnTC7czUq+
+xdlS/d9gBPkqsbl0j16P56wBmu02NfEBQlxEgwAXiJHKAgZP0FxzBP4DBsCoAncE
+/gQABgh0ZXN0MWxvYwUQCCw1pLwJuX1PTasINX94pQ==
+\end{lstlisting}
 
-\subsection{Das erste \emph{eigene} Netzwerk}
+\inGerman{Beide Formate sind exakt identisch und enthalten dieselbe Information, insbesondere enth"alt auch das neue Format die IP.}
+\inEnglish{Both Certificate-Formats are contain the same information, for example, the second format contains the IP, too.}
+%\todo{Does the new Certificate contain the IP?}
 
+\inGerman{Der erste Teil, zwischen den Zeilen 1 und 19, ist einfach ein "offentlicher PGP-Schl"ussel.
+Der zweite Teil, ab Zeile 20, enthält spezifische Zusatzinformationen für RetroShare.
+Enthalten sein muss die \emph{SSLID} an Hand derer RetroShare die Installation findet und \emph{LOCATION} die die für Menschen lesbare Form der Installation darstellt.
+Informationen wie die internen/externen IP- bzw. DynDNS-Adresse muss nicht unbedingt enthalten sein.
+Die externe IP-Adresse ist nur eine Hilfe wenn sie noch gültig ist.
+In den meisten Fällen alle 24 Stunden eine neue IP-Adresse zugewiesen und RetroShare wird diese auch selbst herausfinden.
+Siehe dazu Abschnitt \ref{Verbindung zu Freunden}.
+Wenn man das Ganze in eine Textdatei mit der Endung \emph{.rsc} speichtert, kann man es als Datei per eMail, Stick oder sonstiges versenden und von RetroShare importieren.}
+\inEnglish{The first part of the certificate (lines 1-19) is simply a PGP public key.
+The second part (lines 20-end) contains specific extra information needed by RetroShare.
+The certificate must contain the \emph{SSLID} and the \emph{LOCATION}, to be able to find and connect to your installation.
+The intern/extern IP resp. the (Dyn)DNS-adress is optional, RetroShare can exchange this information with your friend on your first connection.
+The extern IP is only helpful, if it is still valid.
+In most cases (home setup), the extern IP will change every 24h, but this doesn't matter, as RetroShare can figure this out by itself (see \ref{Verbindung zu Freunden}).
+If you're exporting your key to a *.rsc file, you can mail it, put it on an USB-stick etc.}
+
+\subsection{\inGerman{Das erste \emph{eigene} Netzwerk}
+\inEnglish{The first \emph{own} network}}
+%
 Als nächstes solltest du nun Freunde hinzufügen, da ein \glqq friend to friend\grqq Netzwerk ohne Freunde keinen Sinn macht. Ich persönlich nutze immer die Methode des \glqq manuellen Austauschs der Zertifikate\grqq.
 
 Du und dein Freund müssen nun ein einziges Mal eure Zertifikate austauschen, z.B. per eMail, USB-Stick oder sonstiges. Jeder muß das Zertifikat des anderen hinzufügen, ansonsten könnt ihr euch nicht verbinden. Bei der \emph{manuellen Eingabe} des Zertifikats kann die Meldung \glqq Zertifikat korrupt\grqq erscheinen. Dies bedeutet, dass beim Kopieren des Zertifikats etwas schief gegangen ist, z.B. mit zusätzlichen Leerzeichen oder Zeilenumbrüchen und/oder einer falschen Kodierung. Rechts neben dem Feld wo man das Zertifikat des Freundes hineinkopiert hat, leuchtet ein grüner Haken. Wenn er gedrückt wird, versucht RetroShare die Kodierung anzupassen und falsche Whitespaces zu entfernen. Falls danach das Zertifikat immernoch als korrupt gemeldet wird, sollte man es als Dateien austauschen.
@@ -82,5 +136,5 @@ locipp=192.168.0.199:39270;\&extipp=123.142.101.16:39270;}
 
   In diesem langen Link steckt das u.a. das gesamte {\color{red}Zertifikat} und die aktuelle {\color{green}IP-Adresse}, dadurch wird der Schlüsselaustausch zu einem einzigen Klick.
  \item \underline{rscollection}: Dies ist im Prinzip nichts anderes als eine kleine XML Datei, die eine Liste von Ordnern und/oder Dateien enthält. Diese Datei kann in RetroShare im Fenster ``Transfers'' mit dem Button ``Öffne Kollektion'' geöffnet werden und die eigentlichen Dateien können ausgewählt und heruntergeladen werden. Siehe dazu auch den Abschnitt \ref{rscollection}.
- \item TODO: mehr
 \end{itemize}
+\todo{more tips}

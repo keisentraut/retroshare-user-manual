@@ -1,24 +1,56 @@
-\section{\inGerman{Installieren von RetroShare}\inEnglish{Installation of RetroShare}}
+\section{\inGerman{Installieren von RetroShare}
+\inEnglish{Installation of RetroShare}}
 
-\inGerman{Zunächst sei hier die offizielle Seite\footnote{offizielle Downloadseite: \url{http://retroshare.sourceforge.net/downloads.html}} von RetroShare empfohlen. Da RetroShare sich, trotz des Funktionsumfangs, in einem frühen Stadium befindet, ist die Entwicklung teilweise viel weiter als die stabilen Versionen, die auf der offiziellen Webseite zum herunterladen veröffentlicht werden. Deshalb sind meist zwei Versionen, eine stabile und ein Entwicklerschnappschuß, im Umlauf. Einsteiger, an die sich diese Anleitung richtet, sollten deshalb zur stabileren Versionen tendieren und nur jemand der sich auskennt sollte die Entwicklerversion benutzen.}
-\inEnglish{First of all, have a look at the official download site\footnote{offizielle Downloadseite: \url{http://retroshare.sourceforge.net/downloads.html}}. But RetroShare is still in an active phase of development, so it can be that the downloadable versions on this website are very old and could contain already fixed bugs. }
+\inGerman{Zunächst sei hier die offizielle Seite\footnote{offizielle Downloadseite: \url{http://retroshare.sourceforge.net/downloads.html}} von RetroShare empfohlen.
+Da RetroShare sich in einem frühen Stadium befindet, ist die Entwicklung teilweise viel weiter als die stabilen Versionen, die auf der offiziellen Webseite zum herunterladen veröffentlicht werden.
+Deshalb sind meist mehrere Versionen, eine stabile und ein Entwicklerschnappschuß, im Umlauf. 
+Einsteiger, an die sich diese Anleitung richtet, sollten deshalb zu den offiziellen stabilen Versionen tendieren. 
+Zwischen zwei offiziellen Versionen kann schon durchaus mal ein halbes Jahr ins Land gehen. 
+Wer sich also neue Features schon vorab ansehen möchte, kann die Entwicklerversion benutzen.}
+\inEnglish{First of all, have a look at the official download site\footnote{official Downloadpage: \url{http://retroshare.sourceforge.net/downloads.html}}.
+But RetroShare is still in an active phase of development, so it can be that the downloadable versions on this website are very old and could contain already fixed bugs.}
 
 \subsection{Windows}
+%
+\subsubsection{\inGerman{feste Installation}\inEnglish{fixed installation}}
+%
+\inGerman{Zur Installation unter Windows lädt man von der offiziellen Seite die Version die auf *{\_}setup.exe endet herunter. }
+\inEnglish{For an installation on Windows, just download from the official Site the file ending with *{\_}setup.exe.}
+%
+\subsubsection{\inGerman{RetroShare als portable Version (empfohlen)}
+\inEnglish{portable Installation (recommended)}}
+%
+\inGerman{Um es sich für den Anfang leicht zu halten und/oder um wenig Spuren auf dem Rechner zu hinterlassen, empfiehlt sich die Benutzung der auf der Downloadseite angebotenen \glqq Portablen Version\grqq.
+Sie ist während des Kompiliervorgang statisch gelinkt worden und so ist alles nötige in einem zip-Archiv enthalten.
+Nach dem Runterladen muß es nur noch an den Bestimmungsort entpackt werden.
+Ein Klick auf das im Ordner enthaltene \emph{RetroShare.exe} genügt und man kann gleich loslegen.
+Verknüpfungen in (Schnell-)/Startmenü oder auf Desktop müssen allerdings manuell gesetzt werden da sie von keinem Installationsprogramm gesetzt werden.
+Vorteile der portablen Version:
+\begin{itemize}
+\item leichteres Backup seines Benutzerprofils
+\item leichter zu updaten
+\item Alles in einem Ordner
+\item keine Windows Registry Einträge 
+\end{itemize}
+}
 
-\subsubsection{feste Installation}
-\inGerman{Zur Intallation unter Windows lädt man von der offiziellen Seite die Version die auf *{\_}setup.exe endet herunter. Die zur Zeit (\today) aktuelle Version ist \href{http://sourceforge.net/projects/retroshare/files/RetroShare/0.5.3b/RetroShare_0.5.3b_4972_setup.exe/download}{RetroShare{\_}0.5.3b{\_}4972{\_}setup.exe}. Das für die Benutzung benötigte GnuPG ist bereits ins Installationspaket integriert. Während der Installation wird man gefragt ob man GnuPG installieren möchte. Hat man GnuPG bereits installiert, kann man diesen Schritt überspringen. Installiert man GnuPG kann man die Haken bei den Handbüchern entfernen, da RetroShare die Kommunikation mit GnuPG übernimmt.}
-\inEnglish{\todo}
+\inEnglish{To ease the use of RetroShare, or to leave less marks on the computer, we recommend to install the portable Version, which is also downloadable on the official Site.
+It is statically linked and therefor the executable contains all necessary libraries.
+After finishing the download, just put RetroShare.exe in a new Folder and you can start by doubleclicking it.
+The pros of the portable version are:
+\begin{itemize}
+\item easier backup (just copy the whole folder)
+\item easier to update (just replace the RetroShare.exe file)
+\item everything in one single folder
+\item no Registry Entrys necessary
+\end{itemize}
+}
 
-\subsubsection{\inGerman{RetroShare als portable Version}\inEnglish{portable Installation}}
-\inGerman{Um es sich für den Anfang leicht zu halten und/oder um wenig Spuren auf dem Rechner zu hinterlassen, empfiehlt sich die Benutzung der auf der Downloadseite angebotenen \glqq Portablen Version\grqq. Sie ist während des Kompiliervorgang statisch gelinkt worden und so ist alles nötige in einem zip-Archiv enthalten. Nach dem Runterladen muß es nur noch an den Bestimmungsort entpackt werden. Ein Klick auf das im Ordner enthaltene \emph{RetroShare.exe} genügt und man kann gleich loslegen. Verknüpfungen in (Schnell-)/Startmenü oder auf Desktop müssen allerdings manuell gesetzt werden da sie von keinem Installationsprogramm gesetzt werden.}
-\inEnglish{\todo}
-
-\inGerman{In Kombination mit einer TrueCrypt- oder sonstig verschlüsselten Festplatte erhöht es die Sicherheit erheblich, da nach aushängen der \underline{verschlüsselten und versteckten} Partition es \textbf{glaubhaft abstreitbar} ist das RetroShare auf der Festplatte "'exisiert"'. Das höhere Maß an Sicherheit geht auf Kosten der Rechenleistung, da der PC zusätzlich zu GnuPG und OpenSSL, nun auch noch sich um die Verschlüsselung der Festplatte kümmern muß.}
-\inEnglish{\todo}
 
 \subsection{Linux}
 
-\subsubsection{\inGerman{(K,Edu,L,X)Ubuntu und Ubuntu-Derivate\ldots}\inEnglish{(K,Edu,L,X)Ubuntu}}
+\subsubsection{\inGerman{(K,Edu,L,X)Ubuntu und Ubuntu-Derivate\ldots}
+\inEnglish{(K,Edu,L,X)Ubuntu and Ubuntu-Derivates}}
 \inGerman{Benutzt man Ubuntu oder ein Derivat wie z.B. \emph{Linux Mint}, so ist die einfachste und empfohlene Methode das Hinzufügen des offiziellen Repository von Cyril Soler, einem der Hauptentwickler von RetroShare. Damit erhält man automatisch Updates von RetroShare. Der Befehl, den man zum Hinzufügen der Quellen ins \textbf{Terminal} eingeben muß, lautet:}
 \inEnglish{The easiest and recommended method is adding the repository of Cyril Soler, one of the main developers of RetroShare. You will get the newest stable version automatically. Just open a Terminal (Ctrl+Alt+T) and type:}
 
@@ -42,8 +74,8 @@
    sudo apt-get install retroshare 
 \end{lstlisting}
 
-\inGerman{Hierbei würde ich persönlich die Verwendung der \glqq retroshare-snapshots\grqq empfehlen, da diese häufiger aktualisiert werden und RetroShare noch ständig weiterentwickelt wird und man schneller an neue Entwicklungen kommt. Man beachte das die Installation beider Repositorities nichts nützt, weil der Paketname in beiden Verzeichnissen gleich ist und daher die höheren Versionsnummer bevorzugt wird!}
-\inEnglish{Personally, I'm using the snapshots repository, as there are more updates and you get the new features faster.}
+\inGerman{Hierbei würde ich persönlich die Verwendung der \glqq retroshare-snapshots\grqq empfehlen, da diese häufiger aktualisiert werden und RetroShare noch ständig weiterentwickelt wird und man schneller an neue Entwicklungen kommt.}
+\inEnglish{Personally, I'm using the snapshots repository, as there are more updates and you get the new features and bugfixes faster.}
 
 \inGerman{Wer die neue Standard Oberfläche ``Unity'' von RetroShare verwendet, sollte noch beachten, dass Unity das Icon von RetroShare in der \glqq Taskleiste\grqq standardmäßig versteckt, was es unmöglich macht RetroShare wieder sichtbar zu machen, wenn man das Hauptfenster geschlossen hat. Um dieses Verhalten zu deaktivieren, muss man folgendes tun:
 \begin{itemize}
@@ -53,18 +85,19 @@
 \end{itemize}}
 \inEnglish{A notice to all users, which use the new unity user interface of Ubuntu: If you're minimizing RetroShare to the task symbol, it will be hidden by default and you won't be able to make RetroShare visible again. To deactivate this behaviour, do the following stuff:
 \begin{itemize}
- \item Install the package ``dconf-tools'' by typing: sudo apt-get install dconf-tools
+ \item Install the package ``dconf-tools'' by typing: "sudo apt-get install dconf-tools"
  \item Start the program``dconf-editor''
  \item Click into Desktop $\rightarrow$ Unity $\rightarrow$ Panel and add ``RetroShare'' to the variable ``systray-whitelist''
 \end{itemize}}
 
 \subsubsection{\inGerman{andere Linux Distributionen}\inEnglish{other Linux distributions}}
 \inGerman{Hier wird die Sache ein bisschen komplizierter, allerdings sollten die meisten User hier selbst wissen was zu tun ist :)}
-\inEnglish{Here things will get a little more complicated, but not much :)}
+\inEnglish{Here things will get a little more complicated, but you'll probably have figured it out by yourself :)}
 
 % Debian
-\inGerman{\textbf{Debian} biedet weniger aktuelle Software als Ubuntu, legt dafür mehr Wert auf Stabilität. Deshalb sollte man das extra dafür angefertigte Paket\footnote{\url{http://sf.net/projects/retroshare/files/RetroShare/0.5.3b/RetroShare_0.5.3b.5129_debian_i386.deb}} herunterladen und installieren.}
-\inEnglish{\textbf{Debian} users can just install the official package\footnote{\url{http://sf.net/projects/retroshare/files/RetroShare/0.5.3b/RetroShare_0.5.3b.5129_debian_i386.deb}}.}
+\inGerman{\textbf{Debian} User k"oennen einfach das offizielle Paket\footnote{\url{http://sf.net/projects/retroshare/files/RetroShare/0.5.3b/RetroShare_0.5.3b.5129_debian_i386.deb}} herunterladen und installieren.}
+\inEnglish{\textbf{Debian} users can just install the official package\footnote{\url{http://sf.net/projects/retroshare/files/RetroShare/0.5.3b/RetroShare_0.5.3b.5129_debian_i386.deb}}.
+}
 
 % openSUSE / Fedora
 \inGerman{\textbf{OpenSuse / Fedora} Benutzer finden im openSUSE Build Service\footnote{\url{http://download.opensuse.org/repositories/home:/AsamK:/RetroShare/}} ein Repository für openSUSE 11.3, 11.4, 12.1 und Fedora 15 \& 16. Nach dem Einbinden kann man RetroShare über \emph{YUM} installieren.}
@@ -90,7 +123,9 @@
 \inEnglish{For \textbf{FreeBSD} exists a porting at freshports.org\footnote{\url{http://www.freshports.org/net-p2p/retroshare}}. The last version is from 20th Februar 2012.}
 
 \subsection{\inGerman{Kompilieren aus dem Quelltext}\inEnglish{Compiling from Source Code}}
-\inGerman{Wenn für das eigene Betriebssystem kein Paket existiert, defekt ist oder man unbedingt das allerneueste von den Entwicklern haben möchte, bleibt als letzte Alternative nur das eigenständige kompilieren des Quelltextes.
+\inGerman{Wenn für das eigene Betriebssystem kein Paket existiert, defekt ist oder man unbedingt das allerneueste von den Entwicklern haben möchte, bleibt als Alternative nur das eigenständige kompilieren des Quelltextes.
 Anfängern sei davon abgeraten, aber Wagemutige finden dazu im \href{http://retroshare.sourceforge.net/wiki/index.php/UnixCompile}{RetroShare-Wiki} eine Anleitung.}
-\inEnglish{If no paket exists for your operating system, or you just want to have the very newest version, you can always compile RetroShare by yourself. It will require a little bit of programming knowledge, a guideline can be found at \href{http://retroshare.sourceforge.net/wiki/index.php/UnixCompile}{RetroShare-Wiki}.}
+\inEnglish{If no paket exists for your operating system, or you just want to have the very newest version, you can always compile RetroShare by yourself.
+It will require a little bit of programming knowledge, a guideline can be found at \href{http://retroshare.sourceforge.net/wiki/index.php/UnixCompile}{RetroShare-Wiki}.
+It's not recommended for unexperienced users.}
 

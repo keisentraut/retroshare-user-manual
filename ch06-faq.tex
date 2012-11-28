@@ -1,16 +1,53 @@
-\inGerman{
-\section{Häufig gestellte Fragen (FAQ)}
-Die offizielle FAQ auf englisch befindet sich unter \url{http://retroshare.sourceforge.net/wiki/index.php/Frequently_Asked_Questions}.
-Einige häufig gestellten Fragen möchte ich auch hier beantworten.
+\section{\inGerman{H"aufig gestellte Fragen (FAQ)}
+\inEnglish{Frequently asked questions}}
+%
+\inGerman{Die offizielle FAQ auf englisch befindet sich unter \url{http://retroshare.sourceforge.net/wiki/index.php/Frequently_Asked_Questions}.
+Einige häufig gestellten Fragen möchten wir auch hier beantworten.}
+\inEnglish{The official FAQs can be found at \url{http://retroshare.sourceforge.net/wiki/index.php/Frequently_Asked_Questions}.
+Some questions we'll answer here, too.}
 
-\subsection{Warum ist RetroShare so träge nach dem Starten?}
-Die aktuelle Version von RetroShare überprüft beim Start jedesmal alle Signaturen von Forennachrichten, Channelnachrichten u.v.m. Dies dauert je nach Größe deines Netzwerkes bis zu 15min mit hoher CPU-Last und sehr trägem Verhalten von RetroShare. Danach läuft es jedoch sehr stabil und mit geringer CPU-Last.
+\subsection{\inGerman{Windows: Was ist der Unterschied zwischen der installierbaren und der portablen Retroshare Version}
+\inEnglish{Windows: What's the difference between fixed and portable Installation?}}
+%
+\inGerman{Die installierbare Version kommt mit einem Installer und speichert die Profile in \%appdata\%/RetroShare.
+Die portable Version besteht aus einer einzigen Datei RetroShare.exe, und speichert s"amtliche Dateien in einem Ordner.
+Empfehlenswert ist es die portable Version zu verwenden, da sich diese einfacher updaten lässt.}
+\inEnglish{\todo{write}}
 
-Dieses unsinnige Verhalten wird wohl von den Entwicklern in einer späteren Version behoben werden.
+\subsection{\inGerman{Wie update ich mein Retroshare Portable?}
+\inEnglish{How can I update RetroShare?}}
+\todo{write}
 
-\subsection{Wie ist RetroShare lizenziert?}
-RetroShare ist Open Source, d.h. jeder weltweit kann den Quelltext herunterladen und nachvollziehen, wie RetroShare funktioniert.
-Die einzelnen Teile von RetroShare sind dabei laut Angabe der Entwickler folgendermaßen lizenziert:
+\subsection{\inGerman{Windows: Wie wechsele ich von einer bestehenden Retroshare Installation auf Retroshare Portable?}
+\inEnglish{Windows: How can I move my current fixed RetroShare Installation to a portable one?}}
+\todo{write}
+
+\subsection{\inGerman{Ist es möglich Retroshare auf mehreren Rechnern mit dem gleichen Identität zu betreiben?}
+\inEnglish{Is it possible, to run RetroShare on multiple devices with the same identity?}}
+%
+\inGerman{Ja, dafür sind die sogenannten Locations vorgesehen.
+1) ProfilManger aufrufen: Freunde -> Profil --> Profilmanager
+2) Eigene Identität exportieren
+3) Auf anderem Rechner die frische RS Portable starten und das bei 2) erstellte Identität importieren
+4) Jetzt sollte man erstmal die beiden Identitäten miteinander befreunden (wie gewohnt keys tauschen)
+5) Da man mit der neuen Identität noch nicht automatisch seine Freundesliste bekommt, empfiehlt es sich momentan noch von der alten Identität eine Freundesempfehlung mit allen Freunden an die neue Identität zu schicken.}
+\inEnglish{\todo{write}}
+
+\subsection{\inGerman{Kann man Ordnerfreigaben nur für bestimmte Gruppen / Personen Freigeben?}
+\inEnglish{Is it possible to share files only with a certain group of friends?}}
+\todo{write: yes, and soon even for anonymous shares}
+
+\subsection{\inGerman{Warum ist RetroShare so träge, besonders nach dem Starten?}
+\inEnglish{Why is RetroShare so slow, especially on startup?}}
+\inGerman{Die aktuelle Version von RetroShare überprüft beim Start jedesmal alle Signaturen von Forennachrichten, Channelnachrichten u.v.m. Dies dauert je nach Größe deines Netzwerkes bis zu 15min mit hoher CPU-Last und sehr trägem Verhalten von RetroShare. Danach läuft es jedoch sehr stabil und mit geringer CPU-Last.}
+\inGerman{Dieses unsinnige Verhalten wird wohl von den Entwicklern in einer späteren Version behoben werden.}
+\inEnglish{\todo{write}}
+
+
+\subsection{\inGerman{Wie ist RetroShare lizenziert?}
+\inEnglish{How is RetroShare licenced?}}
+\inGerman{RetroShare ist Open Source, d.h. jeder weltweit kann den Quelltext herunterladen und nachvollziehen, wie RetroShare funktioniert.
+Die einzelnen Teile von RetroShare sind dabei laut Angabe der Entwickler folgendermaßen lizenziert:}
 \begin{itemize}
  \item openSSL: BSD style
  \item KadC: GPL + exception (asked author for exception)
@@ -18,36 +55,57 @@ Die einzelnen Teile von RetroShare sind dabei laut Angabe der Entwickler folgend
  \item RetroShare Library: LGPL
  \item RetroShare GUI + QT: GPL + exception
 \end{itemize}
+\inEnglish{\todo{improve}}
 
-\subsection{Ich muss meinen Computer neu installieren. Wie sichere ich meine RetroShare Installation?}
-Es müssen zwei Dinge gesichert werden, die Daten von GnuPG und die von RetroShare. Unter Linux genügt es, im Home-Ordner die versteckten Ordner ``.gnupg'' und ``.retroshare'' zu sichern und diese nach der Neuinstallation zurückzukopieren. Unter Windows: TODO
+\subsection{\inGerman{Ich muss meinen Computer neu installieren. Wie sichere ich meine RetroShare Installation?}
+\inEnglish{I have to reinstall my computer. What do I have to backup?}}
+%
+\inGerman{Es müssen zwei Dinge gesichert werden, die Daten von GnuPG und die von RetroShare. Unter Linux genügt es, im Home-Ordner die versteckten Ordner ``.pgp'' und ``.retroshare'' zu sichern und diese nach der Neuinstallation zurückzukopieren. \todo{Windows}}
+\inEnglish{\todo{write}}
 
-\subsection{Warum benutzt RetroShare soviel Bandbreite, obwohl ich nichts freigegeben habe und auch nichts herunterlade?}
-Wahrscheinlich hast du gerade viel ``F2F-Transfer'', d.h. du leitest Dateien von einem Freund zum anderen weiter. Für Details siehe dazu auch den Abschnitt \ref{dateitransfer}.
+\subsection{\inGerman{Warum benutzt RetroShare soviel Bandbreite, obwohl ich nichts freigegeben habe und auch nichts herunterlade?}
+\inEnglish{Why does RetroShare use so much bandwidth, although I'm not up- or downloading anything?}}
+\inGerman{Wahrscheinlich hast du gerade viel ``F2F-Transfer'', d.h. du leitest Dateien von einem Freund zum anderen weiter. 
+Für Details siehe dazu auch den Abschnitt \ref{dateitransfer}.}
+\inEnglish{write F2F tunnel transfer}
 
-\subsection{Was ist die Obergrenze von Freunden?}
-Viele User beklagen, dass RetroShare mit extrem vielen Freunden (so um die 100 Stück) zu Verbindungsabbrüchen neigt. Man sollte es also (noch) nicht übertreiben.
+\subsection{\inGerman{Gibt es eine Obergrenze von Freunden?}
+\inEnglish{Is there a maximum number of friends I can add?}}
+\inGerman{Einge User beklagen, dass RetroShare bei extrem vielen Freunden (so um die 150 Stück) zu Verbindungsabbrüchen neigt. Man sollte es also (noch) nicht übertreiben. Die Obergrenze hängt u.a. auch von des verwendeten Router und der verfügbaren Internet-Bandbreite ab. Je schneller die Verbindung desdo mehr Freunde sind momentan möglich. Es ist zu erwarten, dass die Obergrenze mit der Einführung des neuen Cache-Systems weiter steigt.}
+\inEnglish{\todo{write}}
 
-\subsection{Wie viele Leute benutzen RetroShare?}
-Das kann nicht mit Sicherheit gesagt werden, da RetroShare im ``Darknet''-Modus keinerlei Spuren im Internet hinterlässt. Nach (unzuverlässigen) Schätzungen, die auf dem DHT beruhen, gibt es wohl weltweit wohl immer ein paar Tausend User gleichzeitig online. Ob diese alle im selben Netzwerk sind, kann jedoch nicht gesagt werden.
 
-\subsection{Was sind Cache-Transfers? Was bedeuten die fc-own bzw. grp-*.dist Dateien im Transfer-Fenster?}
-In Cache-Transfers sind die Foren und Channel Nachrichten (grp-*.dist) als auch die Listen von durchsuchbar freigegebenen Dateien (fc-own.rsfb) enthalten.
+\subsection{\inGerman{Wie viele Leute benutzen RetroShare?}
+\inEnglish{How many people are already using RetroShare?}}
+\inGerman{Das kann nicht mit Sicherheit gesagt werden, da RetroShare im ``Darknet''-Modus keinerlei Spuren im Internet hinterlässt.
+Nach (unzuverlässigen) Schätzungen, die auf dem DHT beruhen, sind wohl weltweit immer um die 1000 User gleichzeitig online.
+Ob diese alle im selben Netzwerk sind, kann jedoch nicht gesagt werden.}
+\inEnglish{\todo{write: impossible, but 1000 acc. to DHT}}
 
-\subsection{Warum brechen meine Verbindungen mit Freunden ständig ab (Freund geht offline und gleich wieder online)?}
-Stelle sicher, dass dein Port weitergeleitet ist, z.B. mithilfe der Seite \url{http://canyouseeme.org}. Falls der Port weitergeleitet ist, könnte es auch daran liegen, dass dein Router die vielen gleichzeitigen Verbindungen des DHT (Abschnitt \ref{dht}) nicht verträgt. Zudem koennte es daran liegen, dass die CPU Auslastung zu hoch ist und daher die Verbindungen abbrechen.
+\subsection{\inGerman{Was sind Cache-Transfers? Was bedeuten die fc-own bzw. grp-*.dist Dateien im Transfer-Fenster?}
+\inEnglish{What are Cache-Transfers? What are the fc-own resp. grp-*.dist files in the Transfer-Tab?}}
+\inGerman{In Cache-Transfers sind die Foren und Channel Nachrichten (grp-*.dist) als auch die Listen von durchsuchbar freigegebenen Dateien (fc-own.rsfb) enthalten.}
+\inEnglish{\todo{write}}
 
-\subsection{Warum funktioniert DHT nicht mehr? Warum bleibt DHT rot und NAT nur gelb, obwohl ich meinen Port definitiv weitergeleitet habe?}
-Dies liegt meist an einem der folgenden Gründe:
+\subsection{\inGerman{Warum brechen meine Verbindungen mit Freunden ständig ab (Freund geht offline und gleich wieder online)?}
+\inEnglish{Why are the connections to my friends so unstable (friend is going off- and online often)?}}
+\inGerman{Stelle sicher, dass dein Port weitergeleitet ist, z.B. mithilfe der Seite \url{http://canyouseeme.org}.
+Falls der Port weitergeleitet ist, könnte es auch daran liegen, dass dein Router die vielen gleichzeitigen Verbindungen des DHT (Abschnitt \ref{dht}) nicht verträgt.
+Unter Optionen->server->netzwerkkonfiguration kann DHT ausgeschaltet werden.
+Zudem koennte es daran liegen, dass die CPU Auslastung zu hoch ist und daher die Verbindungen abbrechen.}
+\inEnglish{\todo{write: port forward, router DHT problem, too many friends}}
+
+\subsection{\inGerman{Warum funktioniert DHT nicht mehr? Warum bleibt DHT rot und NAT nur gelb, obwohl ich meinen Port definitiv weitergeleitet habe?}
+\inEnglish{Why doesn't DHT work anymore? Why does the DHT icon stay red and the NAT icon stay yellow, although I forwarded my port?}}
+\inGerman{Dies liegt meist an einem der folgenden Gründe:
 \begin{itemize}
 \item Port von RetroShare ist nicht weitergeleitet. Überprüfe dies z.B. mit \url{http://www.canyouseeme.org}.
 \item RetroShare wird durch die Firewall des Rechners blockiert.
 \item Durch einen Crash von RetroShare wurde die Datei bdboot.txt im Konfigurationsverzeichnis beschädigt (meist leer). Sie enthät die Startknoten für das DHT (siehe \ref{dht}) und darf nicht leer sein. Abhilfe schafft meist ein simples Löschen dieser Datei, dann wird RetroShare diese beim nächsten Start mit einer mitgelieferten Standard Version überschreiben.
-\end{itemize}
+\end{itemize}}
+\inEnglish{\todo{write: port, firewall, empty bdboot.txt}}
 
-\subsection{Warum ist der Download so langsam?}
-Das liegt wahrscheinlich daran, dass du von einer zu weit entfernten Quelle lädst. Der Download bei F2F Tunneln wird ja durch das langsamste Glied in der Kette beschränkt.
-}
-\inEnglish{ 
-todo
-}
+\subsection{\inGerman{Warum ist der Download so langsam?}
+\inEnglish{Why is the download of files so slow?}}
+\inGerman{Das liegt wahrscheinlich daran, dass du von einer zu weit entfernten Quelle lädst. Der Download bei F2F Tunneln wird ja durch das langsamste Glied in der Kette beschränkt.}
+\inEnglish{\todo{f2f tunnel too long}}

@@ -1,0 +1,43 @@
+﻿Hi Folks,
+
+hier wie besprochen einige Info’s zu Retroshare:
+
+Woher bekommt man RS?
+	http://retroshare.sourceforge.net/downloads.html
+
+Welche Version soll ich nehmen?
+	Unter Windows die RS Portable nehmen, da einfacher zu updaten.
+	http://sourceforge.net/projects/retroshare/files/RetroShare/0.5.3c/RetroShare_0.5.3c_5190_portable.zip/download
+
+5min Quickinstall?
+	RS Portable runterladen und entpacken
+	Retroshare.exe starten un profil anlegen (Nickname, fakemail, pwd, location)
+	Eignen key mit vorher eingegeben Pwd unterschreiben
+	Optionen --> Sicherheit --> Eigenen Key in Datei speichern
+	Eigenen Key per Mail, Skype whatever an Freund senden
+	Freund hinzufügen, indem man den von diesem erhaltenen Key empfängt, dann Freunde  Freund hinzufügen  Key von Freund eingeben / auswählen
+	Optional: Optionen  Server  Netzwerkkonfiguration  Portfreigabe per Hand (<< Port in Router und Firewall weiterleiten)
+	Fertisch, viel Spass beim sicheren kommunizieren =)
+	(In der Taskleiste kann man den Messager Öffnen, dann verhält sich RS ähnlich wie Skype)
+
+Gibt es ein Deutsches Manual?
+	Kein offizielles, aber das hier ist sehr empfehlenswert:
+	http://yet-another-nerd-blog.de/stuff/retroshare/RetroShare_Manual_German_current.pdf
+	Alternative: 
+
+Wie komme ich in die Chat Lobbies?
+	Entweder Freunde adden, die welche erstellt haben, oder den inoffiziellen Chat Server als Freund hinzufügen
+	http://retroshare.sourceforge.net/forum/viewtopic.php?f=3&t=1576
+
+Lest euch das Manual mal durch,
+darin werden einige Fragen schon beantwortet. 
+Falls ihr noch mehr Fragen habt, immer her damit. Ich beantworte die dann besten gewissens.
+
+VG
+
+Budlack
+
+
+PS: Macht euch mit dem erstellen von RS Collections vertraut =)
+Best Practise ist hier, nur die RSCollections Ordner als Browsable frei zu geben.
+

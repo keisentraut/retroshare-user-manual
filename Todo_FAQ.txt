@@ -1,0 +1,32 @@
+Sammlung an häufige Fragen die wir von Newcommern bekommen und dies in noch zu beantworten gilt:
+
+
+* Was ist der Unterschied zwischen der installierbaren und der portalen RS Version
+- die installierbare version kommt mit einem installer und speichert die profile in %appdata%/RetroShare . die portable version kommt im zip- zum selber auspacken, und sucht die profile im selben verzeichnis im Data Ordner
+
+* Wie wechsel ich unter Windows von einer bestehenden Retrshare Installation auf eine Retroshare Portable=
+- http://retroshare.sourceforge.net/forum/viewtopic.php?f=6&p=9118&sid=e2fa79adb6ffccda1e8fb869f0fbf3b1
+
+* Wie update ich mein Retroshare Portable?
+- 
+
+* Kann man Ordnerfreigaben nur für bestimmte Gruppen / Personen Freigeben?
+- Aktuell (September 2012) noch nicht. Diese Art der Freigaben ist aber angedacht. 
+
+
+* Ist es möglich Retroshare auf mehreren Rechnern mit dem gleichen Identität zu betreiben?
+- Ja dafür sind Locations vorgesehen. 
+1) ProfilManger aufrufen: Freunde -> Profil --> Profilmanager
+2) Eigene Identität exportieren
+3) Auf anderem Rechner die frische RS Portable starten und das bei 2) erstellte Identität importieren
+4) Jetzt sollte man erstmal die beiden Identitäten miteinander befreunden (wie gewohnt keys tauschen)
+5) Da man mit der neuen Identität noch nicht automatisch seine Freundesliste bekommt, empfiehlt es sich momentan noch von der alten Identität eine Freundesempfehlung mit allen Freunden an die neue Identität zu schicken.
+
+Verbesserungsvorschlag:
+Neue Identität = Notebook
+Alte Identität = Desktop
+
+
+
+Plugins:
+* Was ist die Verknüpfungswolke und wie funktioniert sie?

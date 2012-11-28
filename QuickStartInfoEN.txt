@@ -1,0 +1,52 @@
+Hi Folks,
+
+here are some quick info to Retroshare (further called "rs"):
+
+Where do I get Retrosare?
+	http://retroshare.sourceforge.net/downloads.html
+
+Is this the newest rs version?
+	no, rs is under current development. You'll find the newest versions are always in the svn repository. 
+	For non informatics who don't know how to compile rs, the easiest way to get access to newer versions with new features like VOIP is
+	to search for it once you are connected to the rs network =)
+
+Which RS Version should I use??
+	If you're using a Windows operating system, then RS Portable is recommended, because it's simple to update.
+	http://sourceforge.net/projects/retroshare/files/RetroShare/0.5.3c/RetroShare_0.5.3c_5190_portable.zip/download
+
+2min Quickinstall?
+	Download RS Portable and uncompress it for example with a tool like www.7-zip.org
+	Start Retroshare.exe and create an new profil (Nickname, fakemail, pwd, location)
+	Sign your own key by entering the pwd you entered before
+	Yeah, you're ready to start =)
+	
+How How do I add a friend?
+	Options --> Security --> Save own key in a file
+	Send this own key file to a friend of you want to add (by Mail, Skype, ICQ whatever)
+ 	Your Friend should to the same.
+	Once you get the your friends key you can add him by clicking the Friend register --> Plus sign --> Add Friend 
+	paste your friends key there and add him as friend. There is no need to sign his key. You should only sign keys from friends you personally know and who you trust 100%
+	Your Friend needs to do the same so you both can connect to each other.
+	there you go, have fun with safe communcation =)	
+	Optional Configuration: Options --> Server --> Networkkonfiguration --> Port Forwarding (<< Forward the choosen port in your router and firewall to get full speed)
+	Tipp: Rightclick on the rs taskbaricon --> open Messenger (get a similar view like in skype)
+
+How do I get access to the public Chat Lobbies? (<< highly reommended)
+	You have to add the inofficial Chat Server as Friend:
+	http://retroshare.sourceforge.net/forum/viewtopic.php?f=3&t=1576
+
+Is there a good german Manual?
+	Not an official one, but this one here is reommendable:
+	http://yet-another-nerd-blog.de/stuff/retroshare/RetroShare_Manual_German_current.pdf
+
+
+If you have further questions (which you probably will have), then I'm glad to hear about it.
+I will answer then as best as I can =)
+
+*Saludos*
+
+Budlack
+
+
+PS: Check out how to create and handle rscollections (the new torrent system for rs)
+Best practise here, share only rscollections as browsable =)

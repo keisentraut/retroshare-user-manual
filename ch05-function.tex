@@ -35,7 +35,8 @@ Würde nun D offline gehen, so würde sich dieses Netzwerk in zwei Unternetzwerk
 \inEnglish{So, a basic consequence is that G can't use RetroShare, because he has no friends.
 If user D goes offline, the above RetroShare-network will split in two subnetworks and no communication or file transfer is possible between H and A anymore.}
 
-\subsection{\inGerman{Verbindung zu Freunden}\inEnglish{Connection with friends}} \label{Connection with friends}
+\subsection{\inGerman{Verbindung zu Freunden}
+\inEnglish{Connection with friends}} 
 \inGerman{Die meisten Personen haben privat daheim keine statische IP Adresse, sondern eine sogenannte dynamische, die sich regelmäßig (meist alle 24h) ändert. Das Problem dabei ist, dass RetroShare auch in der Lage sein muss, sich zu verbinden, wenn du und dein Freund beide für länger als 24h offline wart. Dazu verwendet RetroShare je nach Einstellung bis zu drei verschiedene Methoden, die in den folgenden Unterkapiteln erklärt werden sollen.}
 \inEnglish{Most people don't have a static ip address at home, instead they have a so called dynamic IP, which changes every 24 hours. This is a problem, as RetroShare should be able to connect to your friend, if you and your friend are offline for more than 24 hours. To get the IP address of your friend, RetroShare uses three different methods, which should be explained in the following subsections.}
 
@@ -97,6 +98,7 @@ Falls also A an B eine Nachricht schreibt, aber A immer nur von 8 bis 12 Uhr onl
 
 % I don't know if this is true, so remove it.
 % In einer späteren Version von RetroShare ist es geplant, Nachrichten auch an nicht befreundete Personen verschicken zu können. Ebenfalls geplant ist das ``Parken'' der verschlüsselten Nachricht bei einem gemeinsamen Freund von Sender und Empfänger, um die Zustellung zu beschleunigen, sodass nicht mehr zwangsläufig Sender und Empfänger zur selben Zeit online sein müssen.
+% Budlack: "Uuhhh, das wäre ja mal richtig fett! Schlage vor wir übersetzen den Part und Fragen im der rs devel looby nach ;-)"
 
 \subsection{\inGerman{Datei Transfer}\inEnglish{File Transfer}} \label{filetransfer}
 
@@ -237,8 +239,15 @@ Private Chatlobbies sieht man nur, indem man eine Einladung dazu erhält. Leider
 Ist mindestens ein Freund von dir in einer öffentlichen Chatlobby eingeloggt, so siehst du diese auch und kannst ebenfalls beitreten. Die Sichtbarkeit ist also wieder wie bei den Foren, vgl. Abschnitt \ref{foren}.
 
 \subsection{Relays}
-RetroShare stellt eine (zur Zeit experimentelle) Methode bereit, mit dem ein technisch versierterer Freund anderen unerfahrenen Nutzern die Verbindung erleichtert.
+% Budlack
+RetroShare stellt eine Methode bereit, mit dem ein technisch versierterer Freund anderen Nutzern die Verbindung ins Retrosharenetz ermöglicht, sofern diese keinerlei Einfluss auf ihre Netzwerkgebenheiten haben. 
 
-Bei manchen Internetanbindungen ermöglicht die Firewall keine Benutzung des DHT. Dazu kann nun ein anderer RetroShare-Benutzer jeweils für Freunde, Freundesfreunde oder sonstige Bandbreite reservieren, durch den der DHT Traffic geleitet werden kann. Somit ist auch für Leute hinter einer Firewall eine Benutzung des DHTs möglich.
+Bei manchen Internetanbindungen ermöglichen äußere Umstände keine Benutzung des DHT. Ein anderer RetroShare-Benutzer kann mittels der Relay Optionen jeweils für Freunde, Freundesfreunde oder sonstige Bandbreite reservieren, durch den der DHT Traffic geleitet werden kann. Somit ist auch für Leute hinter einer Firewall eine Benutzung des DHTs möglich.
 
-Reserviert man Bandbreite für Relays, so sollte man beachten, dass diese Bandbreite vom Download und vom Upload gleichermaßen abgezogen wird. Man sollte Relays also nur aktivieren, wenn man Download/Upload-Bandbreite übrig hat.
+Um Missverständnissen zu vermeiden: Relays sind nicht dazu gedacht, den Upload für seine Freunde und Freundesfreunde zu steuern! Vielmehr bieten Relays die Möglichkeit auch in geschlossenen Systemen (Firmennetzwerk, vom ISP geblocktes DHT (z.b. in China)), über eine oder mehrere Relay-Verbindung zu Freunden eine Verbindung zum Retrosharenetzwerkt zu erhalten.
+
+
+Stellt man selbst eine Relay-Verbindung zur Verfügung und reserviert Bandbreite für diese, so sollte man beachten, dass diese Bandbreite vom Download und vom Upload gleichermaßen abgezogen wird.
+Sofern man selbst keine Relay-Verbindung benötigt und Freunde nicht auf diese angewiesen sind, kann Relay in den Optionen standartmäßig deaktiviert werden.
+% @bnk: Ich sehe es so, dass man Relays nur aktiviert, wenn man dies selbst benötigt oder anderen Freunden von einem geschlossenen Netzwerk Zugriff auf's RS netz geben möchte...Standartmäßig daher Relay daktivieren. Ich hab von dir das mal auskommntiert. Siehst du das genauso, lösch hier die beiden Kommentare und check neu ein =)
+% Man sollte Relays also nur aktivieren, wenn man Download/Upload-Bandbreite übrig hat.
