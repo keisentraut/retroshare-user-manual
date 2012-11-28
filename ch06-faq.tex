@@ -1,0 +1,53 @@
+\inGerman{
+\section{Häufig gestellte Fragen (FAQ)}
+Die offizielle FAQ auf englisch befindet sich unter \url{http://retroshare.sourceforge.net/wiki/index.php/Frequently_Asked_Questions}.
+Einige häufig gestellten Fragen möchte ich auch hier beantworten.
+
+\subsection{Warum ist RetroShare so träge nach dem Starten?}
+Die aktuelle Version von RetroShare überprüft beim Start jedesmal alle Signaturen von Forennachrichten, Channelnachrichten u.v.m. Dies dauert je nach Größe deines Netzwerkes bis zu 15min mit hoher CPU-Last und sehr trägem Verhalten von RetroShare. Danach läuft es jedoch sehr stabil und mit geringer CPU-Last.
+
+Dieses unsinnige Verhalten wird wohl von den Entwicklern in einer späteren Version behoben werden.
+
+\subsection{Wie ist RetroShare lizenziert?}
+RetroShare ist Open Source, d.h. jeder weltweit kann den Quelltext herunterladen und nachvollziehen, wie RetroShare funktioniert.
+Die einzelnen Teile von RetroShare sind dabei laut Angabe der Entwickler folgendermaßen lizenziert:
+\begin{itemize}
+ \item openSSL: BSD style
+ \item KadC: GPL + exception (asked author for exception)
+ \item threads: LGPL
+ \item RetroShare Library: LGPL
+ \item RetroShare GUI + QT: GPL + exception
+\end{itemize}
+
+\subsection{Ich muss meinen Computer neu installieren. Wie sichere ich meine RetroShare Installation?}
+Es müssen zwei Dinge gesichert werden, die Daten von GnuPG und die von RetroShare. Unter Linux genügt es, im Home-Ordner die versteckten Ordner ``.gnupg'' und ``.retroshare'' zu sichern und diese nach der Neuinstallation zurückzukopieren. Unter Windows: TODO
+
+\subsection{Warum benutzt RetroShare soviel Bandbreite, obwohl ich nichts freigegeben habe und auch nichts herunterlade?}
+Wahrscheinlich hast du gerade viel ``F2F-Transfer'', d.h. du leitest Dateien von einem Freund zum anderen weiter. Für Details siehe dazu auch den Abschnitt \ref{dateitransfer}.
+
+\subsection{Was ist die Obergrenze von Freunden?}
+Viele User beklagen, dass RetroShare mit extrem vielen Freunden (so um die 100 Stück) zu Verbindungsabbrüchen neigt. Man sollte es also (noch) nicht übertreiben.
+
+\subsection{Wie viele Leute benutzen RetroShare?}
+Das kann nicht mit Sicherheit gesagt werden, da RetroShare im ``Darknet''-Modus keinerlei Spuren im Internet hinterlässt. Nach (unzuverlässigen) Schätzungen, die auf dem DHT beruhen, gibt es wohl weltweit wohl immer ein paar Tausend User gleichzeitig online. Ob diese alle im selben Netzwerk sind, kann jedoch nicht gesagt werden.
+
+\subsection{Was sind Cache-Transfers? Was bedeuten die fc-own bzw. grp-*.dist Dateien im Transfer-Fenster?}
+In Cache-Transfers sind die Foren und Channel Nachrichten (grp-*.dist) als auch die Listen von durchsuchbar freigegebenen Dateien (fc-own.rsfb) enthalten.
+
+\subsection{Warum brechen meine Verbindungen mit Freunden ständig ab (Freund geht offline und gleich wieder online)?}
+Stelle sicher, dass dein Port weitergeleitet ist, z.B. mithilfe der Seite \url{http://canyouseeme.org}. Falls der Port weitergeleitet ist, könnte es auch daran liegen, dass dein Router die vielen gleichzeitigen Verbindungen des DHT (Abschnitt \ref{dht}) nicht verträgt. Zudem koennte es daran liegen, dass die CPU Auslastung zu hoch ist und daher die Verbindungen abbrechen.
+
+\subsection{Warum funktioniert DHT nicht mehr? Warum bleibt DHT rot und NAT nur gelb, obwohl ich meinen Port definitiv weitergeleitet habe?}
+Dies liegt meist an einem der folgenden Gründe:
+\begin{itemize}
+\item Port von RetroShare ist nicht weitergeleitet. Überprüfe dies z.B. mit \url{http://www.canyouseeme.org}.
+\item RetroShare wird durch die Firewall des Rechners blockiert.
+\item Durch einen Crash von RetroShare wurde die Datei bdboot.txt im Konfigurationsverzeichnis beschädigt (meist leer). Sie enthät die Startknoten für das DHT (siehe \ref{dht}) und darf nicht leer sein. Abhilfe schafft meist ein simples Löschen dieser Datei, dann wird RetroShare diese beim nächsten Start mit einer mitgelieferten Standard Version überschreiben.
+\end{itemize}
+
+\subsection{Warum ist der Download so langsam?}
+Das liegt wahrscheinlich daran, dass du von einer zu weit entfernten Quelle lädst. Der Download bei F2F Tunneln wird ja durch das langsamste Glied in der Kette beschränkt.
+}
+\inEnglish{ 
+todo
+}

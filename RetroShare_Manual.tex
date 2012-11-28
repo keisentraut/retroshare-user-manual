@@ -1,0 +1,70 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[urlcolor=blue,linkcolor=green]{hyperref}
+\usepackage{breakurl}
+\usepackage{geometry}
+\usepackage{tikz} % for drawing graph
+\usepackage{fancyhdr}
+\usepackage{listings}
+
+% new page after each section
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+% for multilangual document
+\newcommand{\inGerman}[1]{#1}
+\newcommand{\inEnglish}[1]{}
+
+\lstset{
+  breaklines=true,
+% basicstyle=\footnotesize,         % the size of the fonts that are used for the code
+  numbers=left,                     % where to put the line-numbers
+  numberstyle=\tiny\color{red}      % the style that is used for the line-numbers
+}
+
+% set margins
+\geometry{a4paper, top=25mm, left=25mm, right=25mm, bottom=25mm}
+
+% short command, use it, if something is unfinished
+\newcommand{\todo}{{\color{red} \huge{TODO}}}
+
+% create random 40 hex hash (=SHA1)
+% hd /dev/urandom | head | tr -d ' ' | cut --bytes 10-13 | tr -d '\n' | xclip -selection clipboard
+
+\begin{document}
+\input{titlepage}
+\clearpage
+\tableofcontents
+\clearpage
+% change parindent and parskip
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{6pt}
+%
+% now the actual content
+%
+% Über dieses Dokument
+\input{ch01-about}
+\newpage
+
+% Einführung in GnuPG
+\input{ch02-gnupg}
+\newpage
+
+% Installation auf verschiedenen Betriebssystemen
+\input{ch03-installation}
+\newpage
+
+% Retroshare benutzen
+\input{ch04-artofusing}
+\newpage
+
+% Funktionen in RetroShare
+\input{ch05-function}
+\newpage
+ 
+% Häufig gestellte Fragen
+\input{ch06-faq}
+
+\end{document}

@@ -1,0 +1,244 @@
+\section{\inGerman{Funktionsweise von RetroShare}\inEnglish{How RetroShare works}}
+\inGerman{In diesem Kapitel sollen alle verschiedenen Möglichkeiten der Kommunikation in RetroShare aufgelistet werden und erklärt werden.
+Dazu soll dieses fiktive RetroShare Netzwerk betrachtet werden mit 8 Teilnehmern. Ein Strich zwischen zwei Teilnehmern soll bedeuten, dass sich beide gegenseitig als Freunde hinzugefügt haben. Zur Vereinfachung sei nun auch angenommen, dass alle Teilnehmer zur Zeit online sind.}
+\inEnglish{This chapter should list and explain the various ways of communication in RetroShare and how they are working.
+We will assume the following fictive RetroShare-Network with 8 participants. A line between two nodes should indicate that those two users are friends with each other. For simplification purposes, we assume that all 8 users are online, too.}
+
+\begin{center}
+\begin{tikzpicture}
+  [scale=.8,auto=left,every node/.style={circle,fill=blue!20}]
+  \node (n6) at (1,10) {F};
+  \node (n4) at (4,8)  {D};
+  \node (n5) at (8,9)  {E};
+  \node (n1) at (11,8) {A};
+  \node (n2) at (9,6)  {B};
+  \node (n3) at (5,5)  {C};
+  \node (n7) at (-1,5)  {G};
+  \node (n8) at (1,7)  {H};
+  \foreach \from/\to in {n6/n4,n4/n5,n5/n1,n1/n2,n2/n5,n2/n3,n3/n4,n8/n4,n8/n6}
+    \draw (\from) -- (\to);
+\end{tikzpicture}
+\end{center}
+\inGerman{Person G hat gerade RetroShare installiert und noch keinen Freund. Person E ist mit A, B und D befreundet u.s.w.}
+\inEnglish{User G has installed RetroShare just this minute and not yet added friends. User E ist friends with A, B und D and so forth...}
+
+\inGerman{Im folgenden sei ein \underline{Freund} jeweils eine direkt mit dir befreundete Person, ein \underline{Freundesfreund} ein Freund einer deiner Freunde, mit dem du nicht befreundet bist. Wenn du z.B. die Person A wärst, wären deine Freunde E und B, deine Freundesfreunde C und D, und F bzw. H wären dann \underline{Freunde dritter Stufe}.}
+\inEnglish{We shall call below ``a friend'' a person, which you have added as friend. A ``friend second grade'' shall be a friend of a friend of yours, with whom you are not friends. If f.e. you are person A, your friends would be E,B, your friends second grade would be C and D and the users F and H would be friends third grade to you.}
+
+\inGerman{\emph{RetroShare verbindet sich ausschließlich mit direkten Freunden}, nicht mit Freundesfreunden.
+Daher ist die Nutzung von RetroShare zu 100\% sicher, wenn man seinen Freunden vertrauen kann.
+Eine kleine Ausnahme davon ist - falls eingeschaltet - das DHT, dazu im nächsten Abschnitt mehr.}
+\inEnglish{\emph{RetroShare connects ONLY to your direct friends}, but not to your friends second or higher grade. So if you're adding only thrustworthy persons, you can be 100\% safe. The only (and small) exception to this rule is the DHT, see below for details.}
+
+\inGerman{Person G kann RetroShare nicht benutzen, da er keine Freunde hat.
+Würde nun D offline gehen, so würde sich dieses Netzwerk in zwei Unternetzwerke aufteilen, und somit wäre z.B. ein Dateitransfer zwischen H und A unmöglich.}
+\inEnglish{So, a basic consequence is that G can't use RetroShare, because he has no friends.
+If user D goes offline, the above RetroShare-network will split in two subnetworks and no communication or file transfer is possible between H and A anymore.}
+
+\subsection{\inGerman{Verbindung zu Freunden}\inEnglish{Connection with friends}} \label{Connection with friends}
+\inGerman{Die meisten Personen haben privat daheim keine statische IP Adresse, sondern eine sogenannte dynamische, die sich regelmäßig (meist alle 24h) ändert. Das Problem dabei ist, dass RetroShare auch in der Lage sein muss, sich zu verbinden, wenn du und dein Freund beide für länger als 24h offline wart. Dazu verwendet RetroShare je nach Einstellung bis zu drei verschiedene Methoden, die in den folgenden Unterkapiteln erklärt werden sollen.}
+\inEnglish{Most people don't have a static ip address at home, instead they have a so called dynamic IP, which changes every 24 hours. This is a problem, as RetroShare should be able to connect to your friend, if you and your friend are offline for more than 24 hours. To get the IP address of your friend, RetroShare uses three different methods, which should be explained in the following subsections.}
+
+\inGerman{Ich persönlich habe immer DHT und Discovery an, beides auszuschalten ist nur nötig, wenn die Benutzung von RetroShare selbst illegal wäre, wie vermutlich z.B. in China.}
+\inEnglish{\todo}
+
+\subsubsection{DHT} \label{dht}
+Das ``Distributed Hash Table'' ist die einfachste und bequemste Methode. Dabei nutzt RetroShare momentan noch das ``Bittorrent-DHT'', das wohl größte weltweit. Beachte, dass sich RetroShare hier ausnahmsweise auch mit dritten verbindet, allerdings nur um die IP-Adressen deiner Freunde nachzuschlagen.
+
+RetroShare wird dort in diesem verteilten Netzwerk einen Eintrag der Form (SSL-ID, IP-Adresse)  erzeugen. Damit kann dann jeder, der deine SSL-ID kennt (max. deine Freundesfreunde, wenn deine Freunde Discovery aktiviert haben), deine IP Adresse bestimmen.
+Wer deine SSL-ID nicht kennt, weiß nur, dass hinter deiner IP-Adresse ein RetroShare Nutzer steckt, mehr aber auch nicht, insbesondere nicht deinen RetroShare-Namen.
+
+Wer das DHT nicht aktiviert, dem sei dringend die Einrichtung einer dynamischen DNS empfohlen, siehe weiter unten.
+
+Das DHT stellt mit vielen Personen gleichzeitig eine Verbindung her, was manche Router nicht vertragen zu scheinen. Dies äußert sich in ständigen Verbindungsabbrüchen zu deinen Freunden.
+
+\subsubsection{Discovery}
+Discovery bewirkt, dass du an jeden deiner Freunde gewisse Daten von allen deinen Freunden schickst. So wissen deine Freunde, mit wem du befreundet bist und können sich leichter gegenseitig hinzufügen.
+
+Im obigen Beispiel schickt Person C die Daten
+\begin{itemize}
+ \item (GnuPG-Schlüssel von B, IP-Adresse und Port von B)
+ \item (GnuPG-Schlüssel von D, IP-Adresse und Port von D)
+\end{itemize}
+jeweils an alle seine Freunde, hier B und D. Somit weiß D nun auch die IP-Adresse von seinem Freundesfreund B, kann sich allerdings nicht mit ihm verbinden, außer beide adden sich gegenseitig. Dies funktioniert jedoch immer nur maximal bis zu Freundesfreunden. Schaltet ein Freund von dir Discovery ein, so kannst du also auch für seine Freunde sichtbar werden. Deine Identität und IP-Adresse kann also folglich maximal von Freundesfreunden herausgefunden werden.
+Discovery ermöglicht also ein einfacheres Hinzufügen von Freunden ohne den lästigen manuellen Schlüsselaustausch.
+
+Discovery unterstützt aber auch unmittelbar die Verbindungsherstellung zwischen Freunden. Ang. A und B waren beide länger offline und die IP-Adressen von beiden haben sich geändert. E habe eine statische IP, die sich niemals ändert. Wenn nun weder A noch B DHT oder DynDns benutzen, so können sie sich normalerweise nicht mehr verbinden.
+Hat E jedoch Discovery ein, und beide können noch zu E (die IP-Adresse soll ja ungeändert geblieben sein) verbinden, so können A und B über E die gegenseitigen Ip-Adressen erfahren und sich dennoch verbinden.
+
+\subsubsection{DynDNS}
+Die wohl beste Methode ist es, dass du selbst eine sogenannte ``dynamische DNS'' einrichtest. Dazu kannst du z.B. auf der Seite \url{http://no-ip.org} oder diversen anderen eine dynamische DNS der Form ``irgendwas.no-ip.org'' registrieren und diese von deinem PC oder am besten sogar deinem Router direkt aktualisieren lassen, falls sie sich geändert hat.
+
+Das Einrichten einer dynamischen DNS soll hier nicht weiter erklärt werden, da es den Rahmen sprengt.
+
+Deine Freunde bzw. deren RetroShare kann dann einfach die DNS ``irgendwas.no-ip.org'' nachschlagen und kann deine IP-Adresse sofort ermitteln.
+
+\subsection{Chat}
+\inGerman{RetroShare unterstützt Instant-Messaging mit direkten Freunden. Einfach in der Freundesliste auf den Namen doppelt klicken und das Chatfenster öffnet sich.}
+\inEnglish{RetroShare allows Instant Messaging with your direct friends. Just doubleclick in the friends list on a name and the chat window opens.}
+ 
+\inGerman{Nachrichten, die du deinem Freund schreibst, während er offline ist, werden erst zugestellt, wenn du und dein Freund wieder miteinander verbunden sind! Sie werden ja nicht wie üblich auf einem Server zwischengespeichert.}
+\inEnglish{Beware: Messages, which your writing when your friend is offline, will be not be delivered until you and your friend are connected again! There is no central server, which could save the messages for you, as you might be used to. }
+
+\subsection{\inGerman{Gruppenchat}\inEnglish{Group Chat}}
+\inGerman{Im Gruppenchat können Nachrichten an alle Freunde, die online sind gesendet werden. Freunde, die gerade offline sind, erhalten diese nicht.}
+\inEnglish{Using the group chat allows you to send a message to all of your direct friends which are online. Offline friends won't get the message, even if they get online later.}
+
+\inGerman{Das f\"uhrt dazu, dass man im Gruppenchat nur ``Gespenst''-Chats mitlesen kann, d.h. nur die Nachrichten von einer Person. Denn unterhalten sich z.B. E und D im Gruppenchat, so kann die komplette Konversation nur von E und D mitgelesen werden, hingegen erhalten A und B nur die Nachrichten von E, und C,F,H können nur die Nachrichten von D lesen.}
+\inEnglish{This has the consequence, that you'll notice ``ghost-chats'' in the group chat window sometimes, i.e. you can read only the messages of one person. For example, if E and D are chatting using the group chat, only those two can read both parts of the conversation. A and B will get only the messages from E, and C,F,H will only get D's messages.}
+
+\inGerman{Der Gruppenchat ist meiner Meinung nach nur für Meldungen wie z.B. ``Ich bin die nächsten 4 Tage offline.'' etc. nützlich.}
+\inEnglish{The group chat is probably not the most useful feature, I use it only for messages like ``I'm offline the next week.''.}
+
+\subsection{\inGerman{Nachrichten}\inEnglish{Messages}}
+\inGerman{Ähnlich wie der Chat funktioniert auch das Versenden von Nachrichten. Diese können nur zugestellt werden, wenn der Empfänger zur selben Zeit wie du online ist.
+Falls also A an B eine Nachricht schreibt, aber A immer nur von 8 bis 12 Uhr online ist, B hingegen nur von 13-18 Uhr, so wird diese Nachricht niemals zugestellt werden.}
+\inEnglish{The delivery of messages is similar to the delivery of chat messages. They will only be delivered, if you and your friend are connected, otherwise the messages will stay in the outbox. So, if A is writing a message to B, but A is online only from 8am to 12am, B instead only from 1pm to 6pm, the message will never be delivered.}
+
+% I don't know if this is true, so remove it.
+% In einer späteren Version von RetroShare ist es geplant, Nachrichten auch an nicht befreundete Personen verschicken zu können. Ebenfalls geplant ist das ``Parken'' der verschlüsselten Nachricht bei einem gemeinsamen Freund von Sender und Empfänger, um die Zustellung zu beschleunigen, sodass nicht mehr zwangsläufig Sender und Empfänger zur selben Zeit online sein müssen.
+
+\subsection{\inGerman{Datei Transfer}\inEnglish{File Transfer}} \label{filetransfer}
+
+\inGerman{Das fortgeschrittenste Feature an RetroShare ist wohl der Austausch von Dateien. Bei der Freigabe von Dateien gibt es zwei Möglichkeiten, wie die Dateien freigegeben werden sollen, nämlich
+\begin{itemize}
+ \item netzwerkweit
+ \item durchsuchbar von Freunden
+\end{itemize}
+Es macht natürlich keinen Sinn, in RetroShare Dateien freizugeben ohne mindestens einen der beiden Freigabetypen auszuwählen, da die Dateien sonst gar nicht wirklich freigeben werden. Was genau die beiden Freigabetypen bedeuten, soll in den beiden folgenden Unterkapiteln behandelt werden.}
+\inEnglish{Probably the most advanced feature of RetroShare is the exchange of files. Everyone can chare one ore more folders, and there are the following two options:
+\begin{itemize}
+ \item networkwide
+ \item browsable by friends
+\end{itemize}
+Of course, it is pointless to adding a folder, without at least one of those options enabled. 
+}
+
+\subsubsection{\inGerman{durchsuchbare Freigaben}\inEnglish{browsable by friends}}
+\inGerman{Diese Art von Freigabe eignet sich am besten für private Dateien, wie z.B. Urlaubsfotos. Alle direkten Freunde von dir sehen diese Dateien in ihrem ``Dateien'' Fenster und können dort das Herunterladen in Auftrag geben.}
+\inEnglish{This option allows all your direct friends to see and browse this folder in their ``Files'' Tab. They can download then the complete folder or some parts of it.}
+
+\inGerman{Sobald sie dies tun, wirst du diese Dateien in deinem Upload Fenster sehen und dort auch den Namen des Freundes, der diese herunterlädt. Auch der Freund sieht deinen Namen als Quelle der Datei, die er herunterlädt.}
+\inEnglish{As soon as your friend starts downloading some browsable shared files, you'll see his name and the file in the upload window.}
+
+\inGerman{Insbesondere weiß jeder deiner Freunde, dass du diese Datei freigegeben hast.}
+\inEnglish{Noteworthy is, that all your friends will know that this files are from you.}
+
+\subsubsection{Anonyme Freigaben}
+\inGerman{Diese Art von Freigabe eignet sich dazu, dass nicht einmal Freunde sicher wissen können, was du freigegeben hast.}
+\inEnglish{This option of sharing a folder allows you to share files, without your friends knowing it.}
+
+\inGerman{In diesem Abschnitt seist du Person A aus obigem Graph, und du hast einen Ordner ``Test'' mit der Datei ``Testdatei'' nur anonym, nicht aber durchsuchbar freigegeben. Insbesondere taucht dieser Testordner nicht im Tab Dateien auf und kann nur \"ueber die Suche gefunden werden.}
+\inEnglish{In this subsection, we'll assume that you are person A from the above graph, and you are sharing the folder ``Test'', which contains the file ``Testfile''. Nobody will see this folder in his ``Files'' tab then, it can only be found using the search function.}
+
+\inGerman{Angenommen F sucht nun nach dem Begriff ``Testdatei''. F schickt seine Suchanfrage nach D, D leitet die Suchanfrage weiter an E und C,  usw. und irgendwann landet die Suchanfrage bei dir und du meldest einen Treffer. Jeder Knoten hat sich nun kurzzeitig gemerkt von wem er an wen die Suchanfrage weitergeleitet hat (z.B. merkt sich E: ``Ich habe die Suchanfrage nach ''Testdatei`` und der ID 128931 von D nach A weitergeleitet.''). So ist es möglich, dass du deinen Treffer an F zurücksenden kannst, ohne dass irgendein Knoten sichere Information hat, wer gesucht und wer den Treffer hat.}
+\inEnglish{\todo}
+
+So können ``Anonyme F2F Tunnel'' über maximal 6 Knoten aufgebaut werden und man kann auch Dateien netzwerkweit tauschen, ohne mit allen Teilnehmern befreundet zu sein.
+
+Betrachten wir nun, was jeder Teilnehmer eines solchen ``Anonymer F2F-Tunnel'' weiß, am Beispiel des obigen Tunnels A $\leftrightarrow$ E $\leftrightarrow$ D  $\leftrightarrow$ F:
+\begin{itemize}
+ \item A weiß, dass er die Datei ``Testdatei'' an seinen Freund E hochlädt. (In der GUI wird im Upload Fenster nur ``Anonymer F2F-Tunnel'' angezeigt). Er weiß nicht, ob E diese Datei angefordert hat, oder E sie nur weiterleitet.
+ \item E weiß nur, dass er eine Datei von A nach D weiterleitet. Er weiß nicht, ob A sie hochlädt, oder E sie herunterlädt. E könnte allerdings den Inhalt der weitergeleiteten Datei einsehen.
+ \item Analog weiß D nur, dass er eine Datei von E nach F weiterleitet, könnte jedoch den Inhalt des weitergeleiteten anschauen.
+ \item F weiß nur, dass er die Datei ``Testdatei'' von D herunterlädt. Er weiß nicht, ob D sie hochlädt oder nur weiterleitet.
+\end{itemize}
+
+Natürlich wird die Downloadgeschwindigkeit bei längeren Tunneln meist recht langsam sein, hängt sie doch vom ``schwächsten'' Glied der Kette ab. Hat z.B. E nur einen sehr langsamen Internetanschluss, so wird die Verbindung zwischen F und A auch sehr langsam sein.
+
+Die Nachteile an anonymen Freigaben sind, dass diese nur über die Suche gefunden werden können und zudem nicht das Tauschen in Ordnerstrukturen erlauben. Möchte man nun trotzdem einen kompletten Ordner dem gesamten RetroShare Netzwerk komfortabel zum Download anbieten, so ist die beste Methode, für diesen Ordner eine Kollektion (siehe \ref{rscollection}) zu erstellen und anschließend den RetroShare-Link zu dieser ``.rscollection''-Datei in einem Forum zu posten.
+ 
+Genauere technische Details gibt es in der offiziellen Dokumentation \url{http://retroshare.sourceforge.net/wiki/index.php/Documentation:TurtleHopping}.
+
+\subsubsection{Swarming}
+RetroShare unterstützt das Torrent-Prinzip, d.h. jeder, der eine Datei herunterlädt, kann diese im selben Moment schon wieder hochladen. Auch der Download von mehreren Quellen gleichzeitig ist möglich.
+
+Jede Datei wird dazu in Blöcke von 1MB geteilt und ausschließlich über den Hash der Datei identifiziert, d.h. haben zwei User dieselbe Datei mit anderem Namen, so kann ein dritter User trotzdem von beiden diese Datei herunterladen.
+
+\subsubsection{RetroShare-Links}
+
+RetroShare-intern können Links zu Dateien verbreitet werden. Ein Beispiel-Link wäre
+
+retroshare://file?{\color{green}name=RSCounterFile.txt}\&{\color{yellow}size=200}\&{\color{red}hash=d89f3b4f3fe842ac9164fb19b8d1ab6b2e238d61}
+
+Man sieht, dass dieser nur aus den folgenden Komponenten besteht:
+\begin{itemize}
+ \item {\color{green}Dateinamen}: Dieser teilt RetroShare mit, unter welchem Namen es die Datei nach dem Download abspeichern soll. Dieser kann beliebig verändert werden, der Link funktioniert trotzdem noch.
+ \item {\color{yellow}Dateigröße}: RetroShare muss die Größe der Datei wissen.
+ \item {\color{red}Hash}: Über den Hash identifiziert RetroShare, welche Datei es herunterladen soll. Es ist dabei sehr, sehr unwahrscheinlich, dass zwei Dateien weltweit denselben Hash haben.
+\end{itemize}
+
+\subsubsection{RetroShare-Collections} \label{rscollection}
+
+Mittels ``.rscollection''-Dateien können auch komplette Ordner samt Unterordner und allen enthaltenen Dateien bequem heruntergeladen werden.
+Eine RSCollection ist dabei nur eine Datei mit der Endung ``.rscollection''. Es handelt sich dabei um eine XML-Datei, sie enthält eine Ordnerhierarchie und die dazugehörigen Hashs. Ein Beispiel für den Inhalt einer Collection-Datei wäre:
+\begin{lstlisting}
+<!DOCTYPE RsCollection>
+<RsCollection>
+ <Directory name="Hauptordner">
+  <File size="100" sha1="23f744d9b68841f31e4fe24473066a794898a5bc" name="datei1_im_hauptordner.txt"/>
+  <File size="100" sha1="5f695778740e9f7f63022083f62a09ecc07aaa35" name="datei1_im_hauptordner.txt"/>
+  <Directory name="Unterordner">
+   <File size="200" sha1="2cc55a96942996e1cf870ee43bb269a5cd57d342" name="datei1_im_unterordner.txt"/>
+   <File size="200" sha1="e84e958c18b2fa3e2014c347f7e974e2b797523f" name="datei2_im_unterordner.txt"/>
+  </Directory>
+ </Directory>
+</RsCollection>
+\end{lstlisting}
+Diese 4 Dateien in dieser RSCollection könnten nun heruntergeladen werden, indem diese Kollektion mittels des Buttons ``Öffne Kollektion'' im Transfers-Fenster geöffnet wird.
+Dadurch wird zuerst im eingehenden Ordner zuerst die richtige Ordnerstruktur erstellt (im Beispiel die Ordner ``incoming/Hauptordner'' und ``incoming/Hauptordner/Unterordner'') und anschließend alle ausgewählten Dateien zum Download in Auftrag gegeben.
+Nachdem der Download einer Datei abgeschlossen ist, wird diese automatisch in den passenden Unterordner kopiert.
+
+Ich habe außerdem ein kleines Bash-Script geschrieben, mit dem man Collections auch direkt aus dem Dateisystem erzeugen kann. Dies ist nützlich z.B. für Server. Bei Interesse siehe meinen Blog.
+
+\subsection{Foren} \label{foren}
+
+Foren erlauben den dezentralen Austausch von Nachrichten mit beliebig weit entfernten Teilnehmern des Netzwerkes. Jeder Teilnehmer kann ein Forum erstellen, dieses Forum sehen dann zunächst alle Freunde des Erstellers.
+
+Foren verbreiten sich nur weiter, indem jemand sie abonniert. Dies dient dazu, dass Spam verhindert wird. Jeder, der ein Forum abonniert, verbreitet dieses an alle seine Freunde weiter. So gesehen ist das Abonnieren eines Forums auch eine Empfehlung dieses Forums an deine Freunde. Das Schreiben von Artikeln in Foren ist nur möglich, falls man dieses Forum abonniert hat.
+
+Foren können nur gelöscht werden, indem jede Person das Abonnement kündigt. Solange noch eine Person das Forum abonniert hat, ist dieses auch noch im Netzwerk verfügbar. Du kannst also auch bei selbsterstellten Foren das Abonnement kündigen.
+
+Im Beispiel funktioniert das so: Erstellt A ein Forum, so können es also A, B, D sehen. Abonniert B noch zusätzlich dieses Forum, so können es nun A, B, C, E sehen. Möchte A nun das Forum löschen, so kann er diesem das Abonnement kündigen, jedoch wird das Forum trotzdem noch für B und dessen Freunde sichtbar bleiben (also A, B, C, E), bis auch B sich austrägt und das Forum endgültig nicht weiter verteilt wird. Bei allen Leuten, die dieses Forum jedoch einmal gesehen haben (hier A,B,C,E), bleiben die Nachrichten momentan im Cache und somit für alle Zeit erhalten.
+
+\subsubsection{AUTHentifizierte Foren}
+Bei authentifizierten Foren wird für jede Nachricht eine gültige Unterschrift verlangt. Somit ist einsehbar, welcher Person (genauer welcher GnuPG Schlüssel) diese Nachricht erstellt hat.
+
+Falls die Unterschrift nicht verifiziert werden kann, da der GnuPG-Schlüssel mit der passenden ID nicht bekannt ist (z.B. Nachricht von jemanden, der weder Freund noch Freundesfreund von dir ist), so wird hier eine ``Fehlende Nachricht'' angezeigt. Somit sind von dir geschriebene Nachrichten auch maximal von Freundesfreunden lesbar und Nachrichten verbreiten sich nicht beliebig weit im RetroShare-Netzwerk.
+
+\subsubsection{Anonyme Foren}
+Bei authentifizierten Nachrichten ist keine Unterschrift erforderlich und somit kann jeder anonym schreiben. Nachrichten verbreiten sich beliebig weit, und niemand weiß, wer eine Nachricht geschrieben hat.
+
+Optional kann man seine Nachrichten trotzdem unterschreiben, damit den anderen klar wird, dass die Nachricht in dem anonymen Forum auch wirklich von dir stammt. Somit kann auch in anonymen Foren ein Nachweis erbracht werden, wer die Nachricht geschrieben hat.
+
+\subsection{Kanäle}
+Ein Kanal ermöglicht es einer Person neue Nachrichten bzw. Dateien RetroShare-intern zu veröffentlichen. Ich sehe in meiner Liste z.B. einen Kanal mit aktuellen Versionen von RetroShare als auch einen Kanal mit IT-News.
+
+Die Sichtbarkeit von Kanälen ist dabei genauso wie die Sichtbarkeit von Foren, für Details siehe dazu das Kapitel \ref{foren}.
+
+Für jeden Kanal wird ein GnuPG-Schlüssel erzeugt. Jeder der den privaten Schlüssel dieses Kanals besitzt kann dort neue Nachrichten schreiben. Bei der Erstellung kann man auswählen, ob nur man selbst oder einige ausgewählte Personen diesen privaten Schlüssel erhalten und somit veröffentlichen können (Regelfall) oder jede Person (nicht besonders nützlich meiner Meinung nach).
+
+Das Abonnieren eines Kanals führt dazu, dass dort veröffentliche Dateien automatisch heruntergeladen werden, dies kann jedoch auch deaktiviert werden.
+
+\subsection{Chatlobbies}
+Chatlobbies ermöglichen es auch mit nicht befreundeten Personen dezentral zu chatten. Im Beispiel oben könnten somit F, D, E und A miteinander chatten.
+
+
+Bei Chatlobbies findet niemals eine Authentifizierung statt, jeder kann sich mit einem beliebigen Namen in der Chatlobby anmelden! Seinen Nicknamen kann man in den Optionen im Unterpunkt ``Chat'' ändern. Insbesondere könnte Person A als Nicknamen auch ``Person B'' wählen und somit sich als jemand anderes ausgeben!
+
+Es gibt sowohl öffentliche Chatlobbies, die jeder Nutzer sieht, als auch private, die man nur nach Einladung eines Mitglieds sieht.
+
+Genaue technische Details findet man auf der offiziellen Dokumentationsseite \url{http://retroshare.sourceforge.net/wiki/index.php/Documentation:ChatLobbies}.
+
+\subsubsection{private Chatlobbies}
+Private Chatlobbies sieht man nur, indem man eine Einladung dazu erhält. Leider sind private Chatlobbies zur Zeit etwas benutzerunfreundlich, denn started man RetroShare neu, so muss man von einem Mitglied, dass noch in der privaten Chatlobby ist, wieder neu eingeladen werden.
+
+\subsubsection{öffentliche Chatlobbies}
+Ist mindestens ein Freund von dir in einer öffentlichen Chatlobby eingeloggt, so siehst du diese auch und kannst ebenfalls beitreten. Die Sichtbarkeit ist also wieder wie bei den Foren, vgl. Abschnitt \ref{foren}.
+
+\subsection{Relays}
+RetroShare stellt eine (zur Zeit experimentelle) Methode bereit, mit dem ein technisch versierterer Freund anderen unerfahrenen Nutzern die Verbindung erleichtert.
+
+Bei manchen Internetanbindungen ermöglicht die Firewall keine Benutzung des DHT. Dazu kann nun ein anderer RetroShare-Benutzer jeweils für Freunde, Freundesfreunde oder sonstige Bandbreite reservieren, durch den der DHT Traffic geleitet werden kann. Somit ist auch für Leute hinter einer Firewall eine Benutzung des DHTs möglich.
+
+Reserviert man Bandbreite für Relays, so sollte man beachten, dass diese Bandbreite vom Download und vom Upload gleichermaßen abgezogen wird. Man sollte Relays also nur aktivieren, wenn man Download/Upload-Bandbreite übrig hat.
