@@ -90,51 +90,97 @@ If you're exporting your key to a *.rsc file, you can mail it, put it on an USB-
 \subsection{\inGerman{Das erste \emph{eigene} Netzwerk}
 \inEnglish{The first \emph{own} network}}
 %
-Als nächstes solltest du nun Freunde hinzufügen, da ein \glqq friend to friend\grqq Netzwerk ohne Freunde keinen Sinn macht. Ich persönlich nutze immer die Methode des \glqq manuellen Austauschs der Zertifikate\grqq.
+\inGerman{Als nächstes solltest du nun Freunde hinzufügen, da ein \glqq friend to friend\grqq Netzwerk ohne Freunde keinen Sinn macht. Ich persönlich nutze immer die Methode des \glqq manuellen Austauschs der Zertifikate\grqq.}
+\inEnglish{Now you should add some friends, because a F2F-network without friends is pointless.}
 
-Du und dein Freund müssen nun ein einziges Mal eure Zertifikate austauschen, z.B. per eMail, USB-Stick oder sonstiges. Jeder muß das Zertifikat des anderen hinzufügen, ansonsten könnt ihr euch nicht verbinden. Bei der \emph{manuellen Eingabe} des Zertifikats kann die Meldung \glqq Zertifikat korrupt\grqq erscheinen. Dies bedeutet, dass beim Kopieren des Zertifikats etwas schief gegangen ist, z.B. mit zusätzlichen Leerzeichen oder Zeilenumbrüchen und/oder einer falschen Kodierung. Rechts neben dem Feld wo man das Zertifikat des Freundes hineinkopiert hat, leuchtet ein grüner Haken. Wenn er gedrückt wird, versucht RetroShare die Kodierung anzupassen und falsche Whitespaces zu entfernen. Falls danach das Zertifikat immernoch als korrupt gemeldet wird, sollte man es als Dateien austauschen.
+\inGerman{Du und dein Freund müssen nun ein einziges Mal eure Zertifikate austauschen, z.B. per eMail, USB-Stick oder sonstiges.
+Jeder muß das Zertifikat des anderen hinzufügen, ansonsten könnt ihr euch nicht verbinden. 
+Bei der \emph{manuellen Eingabe} des Zertifikats kann die Meldung \glqq Zertifikat korrupt\grqq erscheinen.
+Dies bedeutet, dass beim Kopieren des Zertifikats etwas schief gegangen ist, z.B. mit zusätzlichen Leerzeichen oder Zeilenumbrüchen und/oder einer falschen Kodierung. 
+Rechts neben dem Feld wo man das Zertifikat des Freundes hineinkopiert hat, leuchtet ein grüner Haken. 
+Wenn er gedrückt wird, versucht RetroShare die Kodierung anzupassen und falsche Whitespaces zu entfernen. 
+Falls danach das Zertifikat immernoch als korrupt gemeldet wird, sollte man es als Dateien austauschen.}
+\inEnglish{You and your friend need to exchange your certificates. If there's a message about "corrupt certificate", one of you did something wrong with the copying (like wrong encoding, unintended extra characters etc.).
+You can try the exchange with files, if the corrupt certificate message stays.}
 
-Weiter solltet ihr im Optionenmenü die maximale Up- und Download-Geschwindigkeit einstellen, die ihr RetroShare erlauben wollt. Voreingestellt sind 200KB/s down und 50KB/s up. Wie schnell der eigene Internetanschluss ist, kann man durch einen Speedtest z.B. bei \url{http://wieistmeineip.de} herausfinden. Wenn du zuviel Upload einstellst, sodass dein Upload komplett ausgelastet ist, wird sich z.B. das Surfen deutlich verlangsamen. Stellt man zu wenig ein, können Freunde nur unnötig langsam von dir herunterladen.
+\inGerman{Weiter solltet ihr im Optionenmenü die maximale Up- und Download-Geschwindigkeit einstellen, die ihr RetroShare erlauben wollt.
+Voreingestellt sind 200KB/s down und 50KB/s up.
+Wie schnell der eigene Internetanschluss ist, kann man durch einen Speedtest z.B. bei \url{http://wieistmeineip.de} herausfinden.
+Wenn du zuviel Upload einstellst, sodass dein Upload komplett ausgelastet ist, wird sich z.B. das Surfen deutlich verlangsamen.
+Stellt man zu wenig ein, können Freunde nur unnötig langsam von dir herunterladen.}
+\inEnglish{You both should adjust your speed settings to the optimal Up- and Downloadspeed.
+The default settings are 200KB/s down and 50KB/s up.
+If you set the upload limit too high, it will slow down browsing, if you set it too low, your friends have to wait unnecessarily long for downloads from you.}
 
-Ich persönlich habe laut Speedtest einen Upload von 150KB/s und habe RetroShare 130KB/s gegeben, sodass ich noch genug Reserve habe und RetroShare immer laufen lassen kann, solange mein Laptop läuft. 
+\inGerman{Ich persönlich habe laut Speedtest einen Upload von 150KB/s und habe RetroShare 120KB/s gegeben, sodass ich noch genug Reserve habe und RetroShare immer laufen lassen kann, solange mein Laptop läuft. 
 Am besten ist es wohl, einfach etwas herumexperimentieren. 
-Meine Download-Geschwindigkeit habe ich frei Schnauze auf 1000KB/s gesetzt, da ich so schnell wie möglich downloaden möchte.
+Meine Download-Geschwindigkeit habe ich frei Schnauze auf 1000KB/s gesetzt, da ich so schnell wie möglich downloaden möchte.}
+\inGerman{Personally, I've got according to a speed test an upload from 150KB/s, so I set RetroShare's upload limit to 120kB/s.
+This way, I have enough reserved bandwidth and am able to let RetroShare continously.
+The upload limit I've set to 1000KB/s, because I want to download as fast as possible.}
 
-Weiter sollte jeder von euch seinen Router konfigurieren. 
+\inGerman{Weiter sollte jeder von euch seinen Router konfigurieren. 
 Am einfachsten ist es, UPnP zu aktivieren und in RetroShare diese Option zu verwenden. 
 Die beste Performance von RetroShare erhält man jedoch, indem man explizit einen Port (z.B. den voreingestellten Port 7812) weiterleitet. 
 Eine Anleitung dafür kann ich hier nicht geben, da diese von Router zu Router unterschiedlich ist.
 Eine Suche im Internet sollte hier weiterhelfen.
 Es muss sowohl TCP als auch UDP weitergeleitet werden.
 Überprüfen kann man den Erfolg der Port-Weiterleitung mithilfe der Seite \url{http://canyouseeme.org}.
-Der Computer auf dem RetroShare laufen soll muss dazu natürlich angeschalten sein.
+Der Computer auf dem RetroShare laufen soll muss dazu natürlich angeschalten sein.}
+\inEnglish{In the next step, each of you both should configure his router.
+The easiest way is to enable UPnP and set RetroShare's server setting to use it.
+The best performance you'll get, if you manually forward a port in your router (e.g. the default port 7812).
+We can't give an instruction how port forwarding can be done, as it is different on each router.
+A search in the internet should help you.
+You have to forward both TCP and UDP.
+Use e.g. the site \url{http://canyouseeme.org} to verify, if your port is forwarded.
+The computer, on which RetroShare runs, must be turned on for that, of course.
+}
 
-Nachdem ihr alle diese Sachen beherzigt habt, solltet ihr euch nun nach einiger Zeit verbunden haben. Viel Spass beim Benutzen von RetroShare!
+\inGerman{Nachdem ihr alle diese Sachen beherzigt habt, solltet ihr euch nun nach einiger Zeit verbunden haben. 
+Viel Spass beim Benutzen von RetroShare!}
+\inEnglish{After doing all this stuff, you and your first friend should connect after some time.
+Have fun using RetroShare!}
 
-\subsection{Freunde finden} \label{schluesselaustausch}
-Wenn du RetroShare testen willst, allerdings privat niemanden kennst, den du überzeugen kannst bzw. nicht genug, so gibt es im Internet einige Möglichkeiten, mit Fremden Schlüssel auszutauschen.
-Die Gefahr dabei ist natürlich, dass man eventuell Leute hinzufügt, die man nicht möchte.
+\subsection{\inGerman{Freunde finden}\inEnglish{Finding friends}} \label{schluesselaustausch}
+\inGerman{Wenn du RetroShare testen willst, allerdings privat niemanden kennst, den du überzeugen kannst bzw. nicht genug, so gibt es im Internet einige Möglichkeiten, mit Fremden Schlüssel auszutauschen.
+Die Gefahr dabei ist natürlich, dass man eventuell Leute hinzufügt, die man nicht möchte.}
 
 Die mir bekannten Seiten dazu seien hier genannt:
 \begin{itemize}
- \item \url{http://retroshare.sourceforge.net/forum/}: Das offizielle Forum von RetroShare hat auch einen Schlüsselaustausch-Thread, allerdings müssen Forenposts dort erst manuell freigegeben werden, was bis zu einer Woche dauern kann, da das Forum für die Entwickler keine Priorität hat. Somit macht es hier nicht wirklich viel Spass.
- \item \url{http://retroshare.info}: Ein (inoffizielles) deutsches RetroShare-Forum, dass für Neulinge auch einen Thread für Schlüsselaustausch hat. Dies ist die wohl beste Methode zu deutschsprachigen Freunden zu kommen.
- \item \url{http://f2f-fr.net/w2c}: Eine französische Seite, in der man seinen Schlüssel an einen sogenannten ``Einführungsserver'' schicken kann, der einen dann automatisch als Freund bestätigt. Danach kann man über Chat Lobbys mit anderen Neulingen dort reden und sich bei gegenseitigem Interesse gegenseitig als Freunde hinzufügen. Auf dieser Seite erhält man viele französische Freunde.
+ \item \url{http://retroshare.sourceforge.net/forum/}: 
+ \inGerman{Das offizielle Forum von RetroShare hat auch einen Schlüsselaustausch-Thread, allerdings müssen Forenposts dort erst manuell freigegeben werden, was bis zu einer Woche dauern kann, da das Forum für die Entwickler keine Priorität hat.}
+ \inEnglish{The official Forum of RetroShare has a key-exchange thread. Unfortunately the forum doesn't allow posts from new users, all posts have to be checked first. Be patient, the admin isn't looking every day.}
+ \item \url{http://f2f-fr.net/w2c}: 
+ \inGerman{Eine französische Seite, in der man seinen Schlüssel an einen sogenannten ``Einführungsserver'' schicken kann, der einen dann automatisch als Freund bestätigt. Danach kann man über Chat Lobbys mit anderen Neulingen dort reden und sich bei gegenseitigem Interesse gegenseitig als Freunde hinzufügen.}
+ \inEnglish{A french site, where you can put your key in a webform. A "Chat Server" is adding you automatically then, and will give you access to some lobbys. You can chat then with other people looking for friends and add some of them as friends, if you want.}
 \end{itemize}
-Wie viele Freunde man auf diese Art hinzufügen möchte, muss jedoch jeder Nutzer für sich selbst entscheiden.
+\inGerman{Wie viele Freunde man auf diese Art hinzufügen möchte, muss jedoch jeder Nutzer für sich selbst entscheiden.}
+\inEnglish{How many such friends you want to add, is your decision.}
 
-\subsection{weitere Hinweise zur Benutzung}
+\subsection{\inGerman{weitere Hinweise zur Benutzung}\inEnglish{other tips and tricks}}
 
-Die Oberfläche von RetroShare sollte eigentlich weitestgehend selbsterklärend sein, zumindest, wenn man dieses Handbuch durchgelesen hat. 
-Leider ist sie meiner Meinung nach etwas kompliziert, und einige ``Tricks'' sollen hier extra erwähnt werden:
+\inGerman{Die Oberfläche von RetroShare sollte eigentlich weitestgehend selbsterklärend sein, zumindest, wenn man dieses Handbuch durchgelesen hat. 
+Leider ist sie meiner Meinung nach etwas kompliziert, und einige ``Tricks'' sollen hier extra erwähnt werden:}
+\inEnglish{The user interface of RetroShare should be quite self-explanatory, at least, if you have read this manual.
+Some options are a little hidden, though, and should get noted here:}
 
 \begin{itemize}
- \item \underline{Freunde empfehlen}: Will man RetroShare-intern einen Freund einem anderen empfehlen, so ist es am einfachsten, die eingebaute Empfehlung zu verwenden (Rechtsklick auf den Freund) oder den zugehörigen ``Zertifikatslink'' (Rechtsklick auf die einen Ort eines Freundes) zu schicken. Ein Zertifikatslink hat die Form
+ \item \underline{Freunde empfehlen}: 
+ \inGerman{Will man RetroShare-intern einen Freund einem anderen empfehlen, so ist es am einfachsten, die eingebaute Empfehlung zu verwenden (Rechtsklick auf den Freund) oder den zugehörigen ``Zertifikatslink'' (Rechtsklick auf die einen Ort eines Freundes) zu schicken. Ein Zertifikatslink hat die Form
 
   retroshare://certificate?sslid=aa61180732ee9051aa61180732ee9051\&{\color{red}gpgid=A1047F82\&gpgbase64=mQENBE9aG9gBCADAA09oJZJzUSU7n1udB7o34L9orvp5ckZkB0I/yq4V9446mOiorSfaVDQnFjETV0NbrM51RIvenUHP75Jzq4/QXcyFE5B+poMg3pVrVUXAm31HZd2StRxprxVFpPTplLutNv79WN+NSih8fBFjc8buAKquff6uue9tvX0mj47NNzp6iSR6+Ae1vzEI0IIw+wKxsdsMcZdPjbJXYRD5eaYnxbhjdJcpr3Sx73XTbOONs7DoNyxrgEURfV4PIVUWF/zmZmKgp5Gtko4k4k+LRKaTNHZ7rEvPvDqv8O2lXrAmdXG81kuCXH6K4/ZrLQzltvhqWMzmxgD9OuJunRv2X2bjABEBAAG0M2tsYXVzIChnZW5lcmF0ZWQgYnkgUmV0cm9zaGFyZSkgPGtsYXVzQGV4YW1wbGUuY29tPokBOAQTAQIAIgUCT1ob2AIbLwYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQnDxC1maIY6nF8Qf/ZZZPni5VYKWKaN+j5rIkjWoDtySeE3iCOCAJtyjiXVGsRWKaSFPZSiL+8VZl6OPYN6oAJnWjyDDf2Ql/QUJKfKpcqpe0SowxMGuDiOHkwCp+Ac6g1tWAi+zRPwP93Af1nI7dNa1TZGmjVJSIvU90JTUM7gCx7vpJf59UZqDatggLxzaeNo2ryXjD+/npRCqeF/kKRPp3/Oac1IIsYU8JK37uzIQJv3Nv3yBkP73OoZhEq7+g2tw9xsFfZn8skbpReXutwvuVFJbGGJLCWikN/DgGl21RaobeiFt109T6LMbsBkIHq9paPVbu7yTgL2TUiLka9sOAwIjZX0tM5DpzIg\&gpgchecksum=lrVI}\&{\color{green}location=laptop\&name=test\&
 locipp=192.168.0.199:39270;\&extipp=123.142.101.16:39270;}
 
-  In diesem langen Link steckt das u.a. das gesamte {\color{red}Zertifikat} und die aktuelle {\color{green}IP-Adresse}, dadurch wird der Schlüsselaustausch zu einem einzigen Klick.
- \item \underline{rscollection}: Dies ist im Prinzip nichts anderes als eine kleine XML Datei, die eine Liste von Ordnern und/oder Dateien enthält. Diese Datei kann in RetroShare im Fenster ``Transfers'' mit dem Button ``Öffne Kollektion'' geöffnet werden und die eigentlichen Dateien können ausgewählt und heruntergeladen werden. Siehe dazu auch den Abschnitt \ref{rscollection}.
+  In diesem langen Link steckt das u.a. das gesamte {\color{red}Zertifikat} und die aktuelle {\color{green}IP-Adresse}, dadurch wird der Schlüsselaustausch zu einem einzigen Klick.}
+  \inEnglish{If you want to recommend RetroShare-intern one friend to another, you should use the "certificate link". A certificate link has the following format
+
+  retroshare://certificate?sslid=aa61180732ee9051aa61180732ee9051\&{\color{red}gpgid=A1047F82\&gpgbase64=mQENBE9aG9gBCADAA09oJZJzUSU7n1udB7o34L9orvp5ckZkB0I/yq4V9446mOiorSfaVDQnFjETV0NbrM51RIvenUHP75Jzq4/QXcyFE5B+poMg3pVrVUXAm31HZd2StRxprxVFpPTplLutNv79WN+NSih8fBFjc8buAKquff6uue9tvX0mj47NNzp6iSR6+Ae1vzEI0IIw+wKxsdsMcZdPjbJXYRD5eaYnxbhjdJcpr3Sx73XTbOONs7DoNyxrgEURfV4PIVUWF/zmZmKgp5Gtko4k4k+LRKaTNHZ7rEvPvDqv8O2lXrAmdXG81kuCXH6K4/ZrLQzltvhqWMzmxgD9OuJunRv2X2bjABEBAAG0M2tsYXVzIChnZW5lcmF0ZWQgYnkgUmV0cm9zaGFyZSkgPGtsYXVzQGV4YW1wbGUuY29tPokBOAQTAQIAIgUCT1ob2AIbLwYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQnDxC1maIY6nF8Qf/ZZZPni5VYKWKaN+j5rIkjWoDtySeE3iCOCAJtyjiXVGsRWKaSFPZSiL+8VZl6OPYN6oAJnWjyDDf2Ql/QUJKfKpcqpe0SowxMGuDiOHkwCp+Ac6g1tWAi+zRPwP93Af1nI7dNa1TZGmjVJSIvU90JTUM7gCx7vpJf59UZqDatggLxzaeNo2ryXjD+/npRCqeF/kKRPp3/Oac1IIsYU8JK37uzIQJv3Nv3yBkP73OoZhEq7+g2tw9xsFfZn8skbpReXutwvuVFJbGGJLCWikN/DgGl21RaobeiFt109T6LMbsBkIHq9paPVbu7yTgL2TUiLka9sOAwIjZX0tM5DpzIg\&gpgchecksum=lrVI}\&{\color{green}location=laptop\&name=test\&
+locipp=192.168.0.199:39270;\&extipp=123.142.101.16:39270;}
+  
+  In this long single link, all information needed by RetroShare is stored: the {\color{red} certificate}, {\color{green} current IP address}. This makes exchanging friends to a simple mouse click.}
+ \item \underline{rscollection}: 
+ \inGerman{Dies ist im Prinzip nichts anderes als eine kleine XML Datei, die eine Liste von Ordnern und/oder Dateien enthält. Diese Datei kann in RetroShare im Fenster ``Transfers'' mit dem Button ``Öffne Kollektion'' geöffnet werden und die eigentlichen Dateien können ausgewählt und heruntergeladen werden. Siehe dazu auch den Abschnitt \ref{rscollection}.}
+ \inEnglish{}
 \end{itemize}
 \todo{more tips}
