@@ -1,5 +1,10 @@
 \documentclass{article}
 
+% for multilangual document, change desired language here
+\newcommand{\inGerman}[1]{}
+\newcommand{\inEnglish}[1]{#1}
+
+
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[urlcolor=blue,linkcolor=green]{hyperref}
@@ -12,10 +17,6 @@
 % new page after each section
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
-
-% for multilangual document, change desired language here
-\newcommand{\inGerman}[1]{}
-\newcommand{\inEnglish}[1]{#1}
 
 \lstset{
   breaklines=true,
