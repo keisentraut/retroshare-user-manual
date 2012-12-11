@@ -1,18 +1,19 @@
 \documentclass{article}
 
 % for multilangual document, change desired language here
-\newcommand{\inGerman}[1]{}
-\newcommand{\inEnglish}[1]{#1}
+\newcommand{\inGerman}[1]{#1}
+\newcommand{\inEnglish}[1]{}
 
 
 \usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}
+\inGerman{\usepackage[ngerman]{babel}}
 \usepackage[urlcolor=blue,linkcolor=green]{hyperref}
 \usepackage{geometry} \geometry{a4paper, top=25mm, left=25mm, right=25mm, bottom=25mm}
 \usepackage{tikz} % for drawing graph
 \usepackage{fancyhdr}
 \usepackage{listings}
 \usepackage{todonotes}
+\usepackage{hyperref}
 
 % new page after each section
 \usepackage{titlesec}

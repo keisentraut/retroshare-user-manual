@@ -5,7 +5,7 @@
 %
 \inGerman{Beim ersten Start wird RetroShare dir die Möglichkeit bieten, einen neuen GnuPG-Schlüsselpaar zu erzeugen. 
 Falls du bereits einen GnuPG-Schlüssel hast, z.B. für Email-Verschlüsselung, kannst du auch diesen verwenden.
-Dabei muß erwähnt werden das nur \emph{RSA}-Schlüssel verwendbar sind, keine \emph{DSA}-Schl"ussel.}
+Dabei muß erwähnt werden das nur \emph{RSA}-Schlüssel verwendbar sind, keine \emph{DSA}-Schl\"ussel.}
 \inEnglish{On the first start, RetroShare will give you the possibility to create a new Public/Private Keypair.
 If you already have a PGP key (e.g. for email encryption), you can use this one by importing it.
 Unfortunately RetroShare can use only RSA keys at the moment, but not DSA keys.}
@@ -13,7 +13,7 @@ Unfortunately RetroShare can use only RSA keys at the moment, but not DSA keys.}
 \inGerman{Wenn RetroShare ein PGP-Schlüsselpaar erstellt, benötigt es einen (Nick-)Namen, eine beliebige Email-Adresse (wird nicht auf Gültigkeit geprüft und auch später nicht benötigt), ein Passwort und einen sogenannten \glqq Ort\grqq .
 Bei der eMail-Adresse steht zwar \emph{optional}, aber RetroShare kann ohne eine Adresse keinen Schlüssel von OpenPGP erstellen lassen.
 Beachte, dass jeder der deinen \"offentlichen Schl\"ussel hat, diese Email Adresse sehen kann, d.h. deine Freunde und evtl. auch Freundesfreunde.
-Bei Zweifeln nutze einfach "invalid@example.com".}
+Bei Zweifeln nutze einfach ``invalid@example.com''.}
 \inEnglish{When RetroShare creates a PGP-keypair, it'll need a (nick)name, a free chosen email (will not be checked and visible to all your friends), a passwort and finally a location.
 The email field has the attribute optional, but can't leave it empty, otherwise OpenPGP can't create a key.
 This email-adress will be visible to all persons having your public key, i.e your friends and eventually your friends of friends.
@@ -24,7 +24,7 @@ Denn \glqq Laptop\grqq oder \glqq Server\grqq lassen sich leichter unterscheiden
 RetroShare generiert mit Hilfe des OpenPGP-Key für jede Installation einen neuen SSL-Key, anhand der die einzelnen Installationen unterschieden werden und die Kommunikation verschlüsselt wird.
 Bei sämtlichen Installationen kann man denselben GnuPG-Key verwenden.}
 \inEnglish{The location is useful for people with more computers, e.g a tower and a laptop. This is a convienient feature to give multiple locations meaningful names, instead of using the random SSLID like 
-"2ddf5cefd2517fb41fd46b5bbb7ce36d".}
+``2ddf5cefd2517fb41fd46b5bbb7ce36d''.}
 
 
 \inGerman{Ein RetroShare-Zertifikat sieht folgendermaßen aus (dieses hier ist kein g\"ultiges):}
@@ -73,17 +73,17 @@ xdlS/d9gBPkqsbl0j16P56wBmu02NfEBQlxEgwAXiJHKAgZP0FxzBP4DBsCoAncE
 /gQABgh0ZXN0MWxvYwUQCCw1pLwJuX1PTasINX94pQ==
 \end{lstlisting}
 
-\inGerman{Beide Formate sind exakt identisch und enthalten dieselbe Information, insbesondere enth"alt auch das neue Format die IP.}
+\inGerman{Beide Formate sind exakt identisch und enthalten dieselbe Information, insbesondere enth\"alt auch das neue Format die IP.}
 \inEnglish{Both Certificate-Formats are contain the same information, for example, the second format contains the IP, too.}
 %\todo{Does the new Certificate contain the IP?}
 
-\inGerman{Der erste Teil, zwischen den Zeilen 1 und 19, ist einfach ein "offentlicher PGP-Schl"ussel.
+\inGerman{Der erste Teil, zwischen den Zeilen 1 und 19, ist einfach ein \"offentlicher PGP-Schl\"ussel.
 Der zweite Teil, ab Zeile 20, enthält spezifische Zusatzinformationen für RetroShare.
 Enthalten sein muss die \emph{SSLID} an Hand derer RetroShare die Installation findet und \emph{LOCATION} die die für Menschen lesbare Form der Installation darstellt.
 Informationen wie die internen/externen IP- bzw. DynDNS-Adresse muss nicht unbedingt enthalten sein.
 Die externe IP-Adresse ist nur eine Hilfe wenn sie noch gültig ist.
 In den meisten Fällen alle 24 Stunden eine neue IP-Adresse zugewiesen und RetroShare wird diese auch selbst herausfinden.
-Siehe dazu Abschnitt \ref{Verbindung zu Freunden}.
+Siehe dazu Abschnitt \ref{ip_determination}.
 Wenn man das Ganze in eine Textdatei mit der Endung \emph{.rsc} speichtert, kann man es als Datei per eMail, Stick oder sonstiges versenden und von RetroShare importieren.}
 \inEnglish{The first part of the certificate (lines 1-19) is simply a PGP public key.
 The second part (lines 20-end) contains specific extra information needed by RetroShare.
@@ -106,7 +106,7 @@ Dies bedeutet, dass beim Kopieren des Zertifikats etwas schief gegangen ist, z.B
 Rechts neben dem Feld wo man das Zertifikat des Freundes hineinkopiert hat, leuchtet ein grüner Haken. 
 Wenn er gedrückt wird, versucht RetroShare die Kodierung anzupassen und falsche Whitespaces zu entfernen. 
 Falls danach das Zertifikat immernoch als korrupt gemeldet wird, sollte man es als Dateien austauschen.}
-\inEnglish{You and your friend need to exchange your certificates. If there's a message about "corrupt certificate", one of you did something wrong with the copying (like wrong encoding, unintended extra characters etc.).
+\inEnglish{You and your friend need to exchange your certificates. If there's a message about ``corrupt certificate'', one of you did something wrong with the copying (like wrong encoding, unintended extra characters etc.).
 You can try the exchange with files, if the corrupt certificate message stays.}
 
 \inGerman{Weiter solltet ihr im Optionenmenü die maximale Up- und Download-Geschwindigkeit einstellen, die ihr RetroShare erlauben wollt.
@@ -122,7 +122,7 @@ The speed of your internet connection can be e.g. tested here: \url{http://speed
 \inGerman{Ich persönlich habe laut Speedtest einen Upload von 150KB/s und habe RetroShare 120KB/s gegeben, sodass ich noch genug Reserve habe und RetroShare immer laufen lassen kann, solange mein Laptop läuft. 
 Am besten ist es wohl, einfach etwas herumexperimentieren. 
 Meine Download-Geschwindigkeit habe ich frei Schnauze auf 1000KB/s gesetzt, da ich so schnell wie möglich downloaden möchte.}
-\inGerman{Personally, I've got according to a speed test an upload from 150KB/s, so I set RetroShare's upload limit to 120kB/s.
+\inEnglish{Personally, I've got according to a speed test an upload from 150KB/s, so I set RetroShare's upload limit to 120kB/s.
 This way, I have enough reserved bandwidth and am able to let RetroShare run continously.
 The download limit I've set to 1000KB/s, because I want to download as fast as possible.}
 
@@ -160,7 +160,7 @@ Die mir bekannten Seiten dazu seien hier genannt:
  \inEnglish{The official Forum of RetroShare has a key-exchange thread. Unfortunately the forum doesn't allow posts from new users, all posts have to be checked first. Be patient, the admin isn't looking every day.}
  \item \url{http://f2f-fr.net/w2c}: 
  \inGerman{Eine französische Seite, in der man seinen Schlüssel an einen sogenannten ``Einführungsserver'' schicken kann, der einen dann automatisch als Freund bestätigt. Danach kann man über Chat Lobbys mit anderen Neulingen dort reden und sich bei gegenseitigem Interesse gegenseitig als Freunde hinzufügen.}
- \inEnglish{A french site, where you can put your key in a webform. A "Chat Server" is adding you automatically then, and will give you access to some lobbys. You can chat then with other people looking for friends and add some of them as friends, if you want.}
+ \inEnglish{A french site, where you can put your key in a webform. A ``Chat Server'' is adding you automatically then, and will give you access to some lobbys. You can chat then with other people looking for friends and add some of them as friends, if you want.}
 \end{itemize}
 \inGerman{Wie viele Freunde man auf diese Art hinzufügen möchte, muss jedoch jeder Nutzer für sich selbst entscheiden.}
 \inEnglish{How many such friends you want to add, is your decision.}
@@ -180,7 +180,7 @@ Some options are a little hidden, though, and should get noted here:}
 locipp=192.168.0.199:39270;\&extipp=123.142.101.16:39270;}
 
   In diesem langen Link steckt das u.a. das gesamte {\color{red}Zertifikat} und die aktuelle {\color{green}IP-Adresse}, dadurch wird der Schlüsselaustausch zu einem einzigen Klick.}
-  \inEnglish{If you want to recommend RetroShare-intern one friend to another, you should use the "certificate link". A certificate link has the following format
+  \inEnglish{If you want to recommend RetroShare-intern one friend to another, you should use the ``certificate link''. A certificate link has the following format
 
   retroshare://certificate?sslid=aa61180732ee9051aa61180732ee9051\&{\color{red}gpgid=A1047F82\&gpgbase64=mQENBE9aG9gBCADAA09oJZJzUSU7n1udB7o34L9orvp5ckZkB0I/yq4V9446mOiorSfaVDQnFjETV0NbrM51RIvenUHP75Jzq4/QXcyFE5B+poMg3pVrVUXAm31HZd2StRxprxVFpPTplLutNv79WN+NSih8fBFjc8buAKquff6uue9tvX0mj47NNzp6iSR6+Ae1vzEI0IIw+wKxsdsMcZdPjbJXYRD5eaYnxbhjdJcpr3Sx73XTbOONs7DoNyxrgEURfV4PIVUWF/zmZmKgp5Gtko4k4k+LRKaTNHZ7rEvPvDqv8O2lXrAmdXG81kuCXH6K4/ZrLQzltvhqWMzmxgD9OuJunRv2X2bjABEBAAG0M2tsYXVzIChnZW5lcmF0ZWQgYnkgUmV0cm9zaGFyZSkgPGtsYXVzQGV4YW1wbGUuY29tPokBOAQTAQIAIgUCT1ob2AIbLwYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQnDxC1maIY6nF8Qf/ZZZPni5VYKWKaN+j5rIkjWoDtySeE3iCOCAJtyjiXVGsRWKaSFPZSiL+8VZl6OPYN6oAJnWjyDDf2Ql/QUJKfKpcqpe0SowxMGuDiOHkwCp+Ac6g1tWAi+zRPwP93Af1nI7dNa1TZGmjVJSIvU90JTUM7gCx7vpJf59UZqDatggLxzaeNo2ryXjD+/npRCqeF/kKRPp3/Oac1IIsYU8JK37uzIQJv3Nv3yBkP73OoZhEq7+g2tw9xsFfZn8skbpReXutwvuVFJbGGJLCWikN/DgGl21RaobeiFt109T6LMbsBkIHq9paPVbu7yTgL2TUiLka9sOAwIjZX0tM5DpzIg\&gpgchecksum=lrVI}\&{\color{green}location=laptop\&name=test\&
 locipp=192.168.0.199:39270;\&extipp=123.142.101.16:39270;}
@@ -188,6 +188,6 @@ locipp=192.168.0.199:39270;\&extipp=123.142.101.16:39270;}
   In this long single link, all information needed by RetroShare is stored: the {\color{red} certificate}, {\color{green} current IP address}. This makes exchanging friends to a simple mouse click.}
  \item \underline{rscollection}: 
  \inGerman{Dies ist im Prinzip nichts anderes als eine kleine XML Datei, die eine Liste von Ordnern und/oder Dateien enthält. Diese Datei kann in RetroShare im Fenster ``Transfers'' mit dem Button ``Öffne Kollektion'' geöffnet werden und die eigentlichen Dateien können ausgewählt und heruntergeladen werden. Siehe dazu auch den Abschnitt \ref{rscollection}.}
- \inEnglish{A RetroShare collection is only a small XML file, which contains basically a list of folders and/or files. You can open a collection by clicking on the "Open Collection" in the transfer tab. You'll get a dialog, where you can select, which files of the collection you want to download. See also section \ref{rscollection}.}
+ \inEnglish{A RetroShare collection is only a small XML file, which contains basically a list of folders and/or files. You can open a collection by clicking on the ``Open Collection'' in the transfer tab. You'll get a dialog, where you can select, which files of the collection you want to download. See also section \ref{rscollection}.}
 \end{itemize}
 \todo{more tips}

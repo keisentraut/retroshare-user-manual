@@ -36,7 +36,7 @@ Würde nun D offline gehen, so würde sich dieses Netzwerk in zwei Unternetzwerk
 If user D goes offline, the above RetroShare-network will split in two subnetworks and no communication or file transfer is possible between H and A anymore.}
 
 \subsection{\inGerman{Verbindung zu Freunden}
-\inEnglish{Connection with friends}} 
+\inEnglish{Connection with friends}} \label{ip_determination}
 \inGerman{Die meisten Personen haben privat daheim keine statische IP Adresse, sondern eine sogenannte dynamische, die sich regelmäßig (meist alle 24h) ändert.
 Das Problem dabei ist, dass RetroShare auch in der Lage sein muss, sich zu verbinden, wenn du und dein Freund beide für länger als 24h offline wart.
 Dazu verwendet RetroShare je nach Einstellung bis zu drei verschiedene Methoden, die in den folgenden Unterkapiteln erklärt werden sollen.}
@@ -51,8 +51,8 @@ To get the IP address of your friend, RetroShare uses three different methods, w
 \inGerman{Das ``Distributed Hash Table'' ist die einfachste und bequemste Methode.
 Dabei nutzt RetroShare momentan noch das ``Bittorrent-DHT'', das wohl größte weltweit.
 Beachte, dass sich RetroShare hier ausnahmsweise auch mit dritten verbindet, allerdings nur um die IP-Adressen deiner Freunde nachzuschlagen.}
-\inEnglish{The "Distributed Hash Table" is the easiest and comfortablest method.
-RetroShare uses the "Bittorrent-DHT", the probably biggest world wide.
+\inEnglish{The ``Distributed Hash Table'' is the easiest and comfortablest method.
+RetroShare uses the ``Bittorrent-DHT'', the probably biggest world wide.
 You should know, that RetroShare will make connections to strangers here, but ONLY to look up the IP-adresses of your friends.}
 
 \inGerman{RetroShare wird dort in diesem verteilten Netzwerk einen Eintrag der Form (SSL-ID, IP-Adresse)  erzeugen.
@@ -102,8 +102,8 @@ The annoying manual key exchange is no longer necessary.
 \subsubsection{DynDNS} \label{dyndns}
 \inGerman{Die wohl beste Methode ist es, dass du selbst eine sogenannte ``dynamische DNS'' einrichtest.
 Dazu kannst du z.B. auf der Seite \url{http://no-ip.org} oder diversen anderen eine dynamische DNS der Form ``irgendwas.no-ip.org'' registrieren und diese von deinem PC oder am besten sogar deinem Router direkt aktualisieren lassen, falls sie sich geändert hat.}
-\inEnglish{The best method to increase your connectivity is the setup of "dynamic DNS".
-You need to go to a site like \url{http://no-ip.org} and register a dyndns like "something.no-ip.org".
+\inEnglish{The best method to increase your connectivity is the setup of ``dynamic DNS''.
+You need to go to a site like \url{http://no-ip.org} and register a dyndns like ``something.no-ip.org''.
 This DNS entry can be updated from your PC regularly or (even better) directly by your router.}
 
 \inGerman{Das Einrichten einer dynamischen DNS soll hier nicht weiter erklärt werden, da es den Rahmen sprengt.}
@@ -177,13 +177,13 @@ What those options mean, will be explained in the next chapters.}
 F schickt seine Suchanfrage nach D, D leitet die Suchanfrage weiter an E und C,  usw. und irgendwann landet die Suchanfrage bei dir und du meldest einen Treffer.
 Jeder Knoten hat sich nun kurzzeitig gemerkt von wem er an wen die Suchanfrage weitergeleitet hat (z.B. merkt sich E: ``Ich habe die Suchanfrage nach ''Testdatei`` und der ID 128931 von D nach A weitergeleitet.'').
 So ist es möglich, dass du deinen Treffer an F zurücksenden kannst, ohne dass irgendein Knoten sichere Information hat, wer gesucht und wer den Treffer hat.}
-\inEnglish{Let's assume, that F searches for "Testfile".
-F sends a search request to D, D forwards this request to E and C, and so on, and after a few hops, the search request arrives at you and you - having "Testfile" - send a hit back.
-Every node has a temporary cache, from who he forwarded which search request to whom (e.g. E remembers: "I have forwarded the search request for "Testfile" with the ID 128931 from D to A).
+\inEnglish{Let's assume, that F searches for ``Testfile''.
+F sends a search request to D, D forwards this request to E and C, and so on, and after a few hops, the search request arrives at you and you - having ``Testfile'' - send a hit back.
+Every node has a temporary cache, from who he forwarded which search request to whom (e.g. E remembers: I have forwarded the search request for ``Testfile'' with the ID 128931 from D to A).
 This way, it is possible, that your success message can be sent the same way back to F, without any node between knowing who searched and who had the hit.}
 
 \inGerman{So können ``Anonyme F2F Tunnel'' über maximal 6 Knoten aufgebaut werden und man kann auch Dateien netzwerkweit tauschen, ohne jemals Dateien an andere außer deinen Freunden zu senden.}
-\inEnglish{This way, it is possible to establish "Anonymous F2F tunnels" up to a maximum of 6 hops and you can share files networkwide, without ever making a connection with other peers except your friends.}
+\inEnglish{This way, it is possible to establish ``Anonymous F2F tunnels'' up to a maximum of 6 hops and you can share files networkwide, without ever making a connection with other peers except your friends.}
 
 \inGerman{Betrachten wir nun, was jeder Teilnehmer eines solchen ``Anonymer F2F-Tunnel'' weiß, am Beispiel des obigen Tunnels A $\leftrightarrow$ E $\leftrightarrow$ D  $\leftrightarrow$ F:
 \begin{itemize}
@@ -192,12 +192,12 @@ This way, it is possible, that your success message can be sent the same way bac
  \item Analog weiß D nur, dass er eine Datei von E nach F weiterleitet, könnte jedoch den Inhalt des weitergeleiteten anschauen.
  \item F weiß nur, dass er die Datei ``Testdatei'' von D herunterlädt. Er weiß nicht, ob D sie hochlädt oder nur weiterleitet.
 \end{itemize}}
-\inEnglish{Let's look at the information, each participant of this "Anonymous F2F-Tunnel" knows, looking at the example tunnel A $\leftrightarrow$ E $\leftrightarrow$ D  $\leftrightarrow$ F from above.
+\inEnglish{Let's look at the information, each participant of this ``Anonymous F2F-Tunnel'' knows, looking at the example tunnel A $\leftrightarrow$ E $\leftrightarrow$ D  $\leftrightarrow$ F from above.
 \begin{itemize}
-\item A knows, that he is uploading the file "Testfile" to his friend E. (In the GUI, he'll see as Peer only "Anonymous F2F-Tunnel"). He doesn't know, if E requests this file, or E forwards this file.
+\item A knows, that he is uploading the file ``Testfile'' to his friend E. (In the GUI, he'll see as Peer only ``Anonymous F2F-Tunnel''). He doesn't know, if E requests this file, or E forwards this file.
 \item E knows, that he forwards a file from A to D. He could spy on what he is transferring, but he can't say, if A is uploading the file or E is downloading it. They could both forward this file from someone else.
 \item Analogue, D knows, he's forwarding a file from E to F and he could look at the file.
-\item F knows, that he is downloading the file "Testfile" from D, but he doesn't know, if D shares this file, or is just forwarding it.
+\item F knows, that he is downloading the file ``Testfile'' from D, but he doesn't know, if D shares this file, or is just forwarding it.
 \end{itemize}}
 
 \inGerman{Natürlich wird die Downloadgeschwindigkeit bei längeren Tunneln meist recht langsam sein, hängt sie doch vom ``schwächsten'' Glied der Kette ab. 
@@ -216,7 +216,7 @@ If you want to share a complete folder with the whole network anyway, the best w
 \subsubsection{Swarming}
 \inGerman{RetroShare unterstützt das Torrent-Prinzip, d.h. jeder, der eine Datei herunterlädt, kann diese im selben Moment schon wieder hochladen.
 Auch der Download von mehreren Quellen gleichzeitig ist möglich.}
-\inEnglish{RetroShare is capable of the so called "swarming", i.e. everyone, who downloads a file, can upload this at the same moment without having the complete file.
+\inEnglish{RetroShare is capable of the so called ``swarming'', i.e. everyone, who downloads a file, can upload this at the same moment without having the complete file.
 The download from multiple sources is possible, too.}
 
 \inGerman{Jede Datei wird dazu in Blöcke von 1MB geteilt und ausschließlich über den Hash der Datei identifiziert, d.h. haben zwei User dieselbe Datei mit anderem Namen, so kann ein dritter User trotzdem von beiden diese Datei herunterladen.}
@@ -248,7 +248,7 @@ retroshare://file?{\color{green}name=RSCounterFile.txt}\&{\color{yellow}size=200
 Eine RSCollection ist dabei nur eine Datei mit der Endung ``.rscollection''.
 Es handelt sich dabei um eine XML-Datei, sie enthält eine Ordnerhierarchie und die dazugehörigen Hashs.
 Ein Beispiel für den Inhalt einer Collection-Datei wäre:}
-\inEnglish{With ".rscollection" files, complete folders with subfolders and all contained files can easiliy be downloaded.
+\inEnglish{With *.rscollection files, complete folders with subfolders and all contained files can easiliy be downloaded.
 A collection is simply a XML file, which contains the folder structure and all names/hashes of the files.
 An example collection looks like this:}
 
@@ -265,11 +265,11 @@ An example collection looks like this:}
  </Directory>
 </RsCollection>
 \end{lstlisting}
-\inGerman{Diese 4 Dateien in dieser RSCollection k\"onnten nun heruntergeladen werden, indem diese Kollektion mittels des Buttons "Oeffne Kollektion" im Transfers-Fenster geoeffnet wird. 
-Dadurch wird zuerst im eingehenden Ordner zuerst die richtige Ordnerstruktur erstellt (im Beispiel die Ordner "incoming/Hauptordner" und "incoming/Hauptordner/Unterordner") und anschließend alle ausgewählten Dateien zum Download in Auftrag gegeben.
+\inGerman{Diese 4 Dateien in dieser RSCollection k\"onnten nun heruntergeladen werden, indem diese Kollektion mittels des Buttons ``\"Offne Kollektion'' im Transfers-Fenster geoeffnet wird. 
+Dadurch wird zuerst im eingehenden Ordner zuerst die richtige Ordnerstruktur erstellt (im Beispiel die Ordner ``incoming/Hauptordner'' und ``incoming/Hauptordner/Unterordner'') und anschließend alle ausgewählten Dateien zum Download in Auftrag gegeben.
 Nachdem der Download einer Datei abgeschlossen ist, wird diese automatisch in den passenden Unterordner kopiert.}
-\inEnglish{These 4 files of this RSCollection can now be downloaded by using the button "Open Collection" in the Transfers-tab.
-If you do this, RetroShare will create the folder structure for you (in the example the folders "incoming/Mainfolder" and "incoming/Mainfolder/Subfolder") and then queue all 4 files in the download queue.
+\inEnglish{These 4 files of this RSCollection can now be downloaded by using the button ``Open Collection'' in the Transfers-tab.
+If you do this, RetroShare will create the folder structure for you (in the example the folders ``incoming/Mainfolder'' and ``incoming/Mainfolder/Subfolder'') and then queue all 4 files in the download queue.
 After finishing the download of one of those 4 files, it'll be moved into the correct subfolder automatically.}
 
 \subsection{Foren} \label{foren}
